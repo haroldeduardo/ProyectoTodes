@@ -18,7 +18,7 @@ return new class extends Migration
             $table->timestamps();
             $table->string('Nombre');
             $table->string('Descripcion');
-      
+           // $table->unsignedBigInteger('Categoria_id');
             $table->dateTime('FechaHora');
             $table->string('Lugar');
             $table->enum("Estado", ["activo", "inactivo"]);// <-- Aquí el enum
