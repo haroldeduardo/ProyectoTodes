@@ -15,7 +15,6 @@ return new class extends Migration
     {
         Schema::create('publicacionevento', function (Blueprint $table) {
             $table->id();
-            $table->timestamps();
             $table->string('Nombre');
             $table->string('Descripcion');
             $table->Date('FechaHora');
@@ -24,7 +23,7 @@ return new class extends Migration
             $table->string('UrlExterna');
             $table->string('Reponsable');
             $table->Date('Fecha_caducidad');
-            $table->enum("Tipo", ["Noticia", "Evento"]  );// <-- Aquí el enum
+            $table->enum("Tipo", ["Noticia", "Evento"]  );
         });
     }
 

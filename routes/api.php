@@ -4,7 +4,10 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Archivo_controller;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\publicacionController;
+use App\Http\Controllers\Controller;
+
+//use App\Http\Controllers\categoriasController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -21,7 +24,9 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::get('/publicacion',[publicacionController::class,'index']);
+Route::get('/publicacion',[Controller::class,'index']);
+
+//Route::get('/categorias',[categoriasController::class,'index']);
 
 //get
 //post
