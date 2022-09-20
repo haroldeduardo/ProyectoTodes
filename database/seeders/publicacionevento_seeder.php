@@ -6,7 +6,7 @@ use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 
-class Publicacion_Evento_seeder extends Seeder
+class publicacionevento_seeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -15,7 +15,7 @@ class Publicacion_Evento_seeder extends Seeder
      */
     public function run()
     {
-        DB::table('_publicacionevento')->insert 
+        DB::table('publicacionevento')->insert 
         ([
             'Nombre' => 'saludOcupacional',
             'Descripcion' => 'charla de  salud de la comunidad',
