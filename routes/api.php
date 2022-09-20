@@ -4,6 +4,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Archivo_controller;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\publicacionController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,7 +20,9 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
-Route::get('users/',[Archivo_controller::class,'index']);
+
+Route::get('/publicacion',[publicacionController::class,'index']);
+
 //get
 //post
 //delete
