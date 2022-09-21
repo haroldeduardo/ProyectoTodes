@@ -4,8 +4,10 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\PublicacioneventoController ;
 use App\Http\Controllers\ArchivoeventoController ;
 use App\Http\Controllers\ComentariosController ;
+use App\Http\Controllers\CategoriaController ;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Route;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -24,6 +26,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::get('/publicacion',[PublicacioneventoController::class,'index']);
 Route::get('/archivo',[ArchivoeventoController::class,'index']);
 Route::get('/comentarios',[ComentariosController::class,'index']);
+Route::get('/categoria',[CategoriaController::class,'index']);
 //get
 //post
 //delete

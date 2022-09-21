@@ -22,4 +22,8 @@ class Publicacioneventomodels extends Model
     public  function archivo(){
         return $this->hasMany(Archivoevento::class,'id');
     }
+
+    public  function categoria(){
+        return $this->belongsTo(Categoria::class,'detallecategoria');
+    }
 }
