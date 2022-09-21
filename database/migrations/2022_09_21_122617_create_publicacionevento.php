@@ -23,7 +23,7 @@ return new class extends Migration
             $table->string('UrlExterna');
             $table->string('Responsable');
             $table->date('Fecha_caducidad');
-            $table->enum("Tipo", ["noticia", "evento"]);// <-- Aquí el enum
+            $table->enum("Tipo", ["noticia", "evento"]);// <-- Aquí  enum
 
        
         });
