@@ -11,8 +11,8 @@ class Archivoeventomodels extends Model
     protected $table = 'archivoevento';
     protected $fillable = [
    
-        'Nombre',
-        'Descripcion',
+        
+        'Ruta',
         'id_publicacion',
        
         

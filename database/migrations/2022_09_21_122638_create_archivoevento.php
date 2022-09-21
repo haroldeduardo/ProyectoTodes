@@ -15,8 +15,8 @@ return new class extends Migration
     {
         Schema::create('archivoevento', function (Blueprint $table) {
             $table->id();
-            $table->string('Nombre');
-            $table->string('Descripcion');
+          
+            $table->string('Ruta');
             $table->foreignId('id_publicacion')
             ->nullable()
             ->constrained('publicacionevento')

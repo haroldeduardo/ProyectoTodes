@@ -17,6 +17,15 @@ return new class extends Migration
             $table->id();
             $table->string('Nombre');
             $table->string('Descripcion');
+            $table->dateTime("Fecha_y_Hora");
+            $table->string('Lugar');
+            $table->enum("Estado", ["activo", "inactivo"]);// <-- Aquí el enum
+            $table->string('UrlExterna');
+            $table->string('Responsable');
+            $table->date('Fecha_caducidad');
+            $table->enum("Tipo", ["noticia", "evento"]);// <-- Aquí el enum
+
+       
         });
     }
 
