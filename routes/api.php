@@ -26,8 +26,14 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::get('/publicacion',[PublicacioneventoController::class,'index']);
 Route::get('/archivo',[ArchivoeventoController::class,'index']);
 Route::get('/comentarios',[ComentariosController::class,'index']);
-Route::get('/categoria',[CategoriaController::class,'index']);
+//Route::get('/categoria',[CategoriaController::class,'index']);
 //get
 //post
 //delete
+//--------------------------------------------------------------------------
+Route::get('/categoria_index',[Categoriacontroller::class,'index']);
+Route::get('/categoria_show/{id}',[Categoriacontroller::class,'show']);
+Route::post('/categoria_store',[Categoriacontroller::class,'store']);
+Route::put('/categoria_update/{id}',[Categoriacontroller::class,'update']);
+Route::delete('/categoria_destroy/{id}',[Categoriacontroller::class,'destroy']);
 ?>

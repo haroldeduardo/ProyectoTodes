@@ -25,7 +25,7 @@ class ArchivoeventoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        
     }
 
     /**
@@ -36,7 +36,7 @@ class ArchivoeventoController extends Controller
      */
     public function show($id)
     {
-        //
+        
     }
 
     /**
@@ -48,7 +48,7 @@ class ArchivoeventoController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        
     }
 
     /**
@@ -59,6 +59,6 @@ class ArchivoeventoController extends Controller
      */
     public function destroy($id)
     {
-        //
+        
     }
 }
