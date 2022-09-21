@@ -8,8 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Publicacionevento extends Model
 {
     use HasFactory;
-
     public function archivos(){
-        return $this->belongsTo(archivosevento::class,'id');
+        return $this->belongsTo(Archivosevento::class,'id_publicacion');
     }
 }
