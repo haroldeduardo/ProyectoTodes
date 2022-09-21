@@ -3,8 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Publicacioneventomodels;
 
-class Reporte_controller extends Controller
+class PublicacioneventoController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -13,7 +14,8 @@ class Reporte_controller extends Controller
      */
     public function index()
     {
-        //
+        $publicacion=Publicacioneventomodels::all();
+        return $publicacion;
     }
 
     /**

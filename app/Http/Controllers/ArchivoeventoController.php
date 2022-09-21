@@ -3,8 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
-class Evento_controller extends Controller
+use App\Models\Archivoeventomodels;
+class ArchivoeventoController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -13,7 +13,8 @@ class Evento_controller extends Controller
      */
     public function index()
     {
-        //
+        $archivo=Archivoeventomodels::all();
+        return $archivo;
     }
 
     /**
