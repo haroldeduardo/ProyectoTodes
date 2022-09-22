@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('detallecategoria', function (Blueprint $table) {
             $table->id();
-            $table->enum("Prioridad", ["Principal", "Secundario"]);// <-- Aquí el enum
+            $table->enum("prioridad", ["Principal", "Secundario"]);// <-- Aquí el enum
             $table->foreignId('id_publicacion')
             ->nullable()
             ->constrained('publicacionevento')

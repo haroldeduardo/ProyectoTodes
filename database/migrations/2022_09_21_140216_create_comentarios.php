@@ -15,9 +15,9 @@ return new class extends Migration
     {
         Schema::create('comentarios', function (Blueprint $table) {
             $table->id();
-            $table->string ('Contenido');
-            $table->enum("Clasificasion", ["Me interesa", "No me interesa"]);// <-- Aquí el enum
-            $table->date ('Fecha_comentario');
+            $table->string ('contenido');
+            $table->enum("clasificasion", ["Me interesa", "No me interesa"]);// <-- Aquí el enum
+            $table->date ('fecha_comentario');
 
             $table->foreignId('id_publicacion')
             ->nullable()

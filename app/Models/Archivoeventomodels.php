@@ -10,12 +10,8 @@ class Archivoeventomodels extends Model
     use HasFactory;
     protected $table = 'archivoevento';
     protected $fillable = [
-   
-        
-        'Ruta',
+        'ruta',
         'id_publicacion',
-       
-        
     ];
 
     public  function publicacion(){

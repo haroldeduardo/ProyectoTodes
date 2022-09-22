@@ -17,9 +17,8 @@ class archivoevento extends Seeder
     {
         DB::table('archivoevento')->insert 
         ([
-            'Nombre' => 'sss',
-            'Descripcion' =>'www',
-            'id_publicacion'=>1
+            'ruta'=>'https\\\sss',
+           
         ]);
     }
 }

@@ -12,11 +12,8 @@ class Categoriamodels extends Model
     protected $table = 'categoria';
     protected $fillable = [
    
-        'Nombre',
-        'Descripcion',
-        
-       
-        
+        'nombre',
+        'descripcion',     
     ];
 
     public  function publicacion(){

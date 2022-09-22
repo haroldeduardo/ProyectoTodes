@@ -28,14 +28,14 @@ class CategoriaController extends Controller
      */
     public function store(Request $request)
     {
-        $validar_acta_entrega=Validator::make($request->all(),
-        ["Nombre"=>"required"]);//required es necesario
-        if(!$validar_acta_entrega->fails())//si al validar no hay falla
+        $validar_categoria=Validator::make($request->all(),
+        ["nombre"=>"required"]);//required es necesario
+        if(!$validar_categoria->fails())//si al validar no hay falla
           {
-            $acta_entrega = new Categoriamodels();
-            $acta_entrega->Nombre = $request->Nombre;
-            $acta_entrega->Descripcion = $request->Descripcion;
-            $acta_entrega->save();
+            $cat = new Categoriamodels();
+            $cat->nombre = $request->nombre;
+            $cat->descripcion = $request->descripcion;
+            $cat->save();
             return response()->json(['mensaje'=>"QUEDO GUARDADA LA CATEGORIA"]);
           }
     }
@@ -48,8 +48,8 @@ class CategoriaController extends Controller
      */
     public function show($id)
     {
-        $acta_entrega=Categoriamodels::Where('id',$id)->get();
-        return $acta_entrega;
+        $categoriashow=Categoriamodels::Where('id',$id)->get();
+        return $categoriashow;
     }
 
     /**
@@ -61,17 +61,16 @@ class CategoriaController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $validar_acta_entrega=Validator::make
-        ($request->all(),["Nombre"=>"required"]);
-        if(!$validar_acta_entrega->fails())
+        $validar_categoria=Validator::make
+        ($request->all(),["nombre"=>"required"]);
+        if(!$validar_categoria->fails())
         {
-            $acta_entrega = Categoriamodels::find($id);
-                if(isset($acta_entregas))
+            $categorias = Categoriamodels::find($id);
+                if(isset($categorias))
                 {
-                    $acta_entrega->Nombre= $request->Nombre;
-                    $acta_entrega->Descripcion = $request->Descripcion;
-
-                    $acta_entregas->save();
+                    $categorias->nombre= $request->nombre;
+                    $categorias->descripcion = $request->descripcion;
+                    $categorias->save();
                     return response()->json(['mensaje'=>"QUEDO ACTUALIZADA ESA CATEGORIA"]);
                 }
                  else{
@@ -92,10 +91,10 @@ class CategoriaController extends Controller
      */
     public function destroy($id)
     {
-        $acta_entrega=Categoriamodels::find($id);
-        if(isset($acta_entrega))
+        $categoriadestroy=Categoriamodels::find($id);
+        if(isset($categoriadestroy))
         {
-          $acta_entrega->delete();
+          $categoriadestroy->delete();
           return response()->json(['mensaje'=>"LA CATEGORIA SE ELIMINO CORRECTAMENTE"]);
         }
         else{
@@ -104,7 +103,7 @@ class CategoriaController extends Controller
         return response()->json([
             'mensaje'=>"ok",
             "id"=>$id,
-            'acta_entrega'=>$acta_entrega
+            'nombre'=>$categoriadestroy
              ]);
     }
 }

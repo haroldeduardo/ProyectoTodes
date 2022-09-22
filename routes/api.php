@@ -36,4 +36,17 @@ Route::get('/categoria_show/{id}',[Categoriacontroller::class,'show']);
 Route::post('/categoria_store',[Categoriacontroller::class,'store']);
 Route::put('/categoria_update/{id}',[Categoriacontroller::class,'update']);
 Route::delete('/categoria_destroy/{id}',[Categoriacontroller::class,'destroy']);
+//----------------------------------------------------------------------------
+Route::get('/archivoevento_index',[ArchivoeventoController::class,'index']);
+Route::get('/archivoevento_show/{id}',[ArchivoeventoController::class,'show']);
+Route::post('/archivoevento_store',[ArchivoeventoController::class,'store']);
+Route::put('/archivoevento_update/{id}',[ArchivoeventoController::class,'update']);
+Route::delete('/archivoevento_destroy/{id}',[ArchivoeventoController::class,'destroy']);
+//----------------------------------------------------------------------------
+Route::get('/comentarios_index',[ComentariosController::class,'index']);
+Route::get('/comentarios_show/{id}',[ComentariosController::class,'show']);
+Route::post('/comentarios_store',[ComentariosController::class,'store']);
+Route::put('/comentarios_update/{id}',[ComentariosController::class,'update']);
+Route::delete('/comentarios_destroy/{id}',[ComentariosController::class,'destroy']);
+//----------------------------------------------------------------------------
 ?>

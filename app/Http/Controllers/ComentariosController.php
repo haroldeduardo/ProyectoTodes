@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Comentarios;
+use Illuminate\Support\Facades\Validator;
 
 class ComentariosController extends Controller
 {
@@ -25,7 +26,17 @@ class ComentariosController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validar_comentario=Validator::make($request->all(),
+        ["Clasificacion"=>"required"]);//required es necesario
+        if(!$validar_comentario->fails())//si al validar no hay falla
+          {
+            $comentario = new Comentarios();
+            $comentario->contenido = $request->contenido;
+            $comentario->clasificacion = $request->clasificacion;
+            $comentario->fecha_comentario = $request->fecha_comentario;
+            $comentario->save();
+            return response()->json(['mensaje'=>"QUEDO GUARDADO EL COMENTARIO"]);
+          }
     }
 
     /**
@@ -36,7 +47,8 @@ class ComentariosController extends Controller
      */
     public function show($id)
     {
-        //
+       $comentarioshow=Comentarios::Where('id',$id)->get();
+       return $comentarioshow;
     }
 
     /**
@@ -48,7 +60,27 @@ class ComentariosController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $validar_comentario=Validator::make
+        ($request->all(),["fecha_comentario","clasificacion"=>"required"]);
+        if(!$validar_comentario->fails())
+        {
+            $comentariosupdate=Comentarios::find($id);
+                if(isset($comentariosupdate))
+                {
+                    $comentariosupdate->contenido= $request->contenido;
+                    $comentariosupdate->clasificacion = $request->clasificacion;
+                    $comentariosupdate->fecha_comentario = $request->fecha_comentario;
+                    $comentariosupdate->save();
+                    return response()->json(['mensaje'=>"QUEDO ACTUALIZADA ESE COMENTARIO"]);
+                }
+                 else{
+                    return response()->json(['mensaje'=>" ESA COMENTARIO NO SE ENCONTRO"]);
+                 }
+        }
+        else
+        {
+            return response()->json(['mensaje'=>" LA VALIDACION DE ESE COMENTARIO ES INCORRECTA"]);
+        }
     }
 
     /**
@@ -59,6 +91,19 @@ class ComentariosController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $comentariodestroy=Comentarios::find($id);
+        if(isset($comentariodestroy))
+        {
+          $comentariodestroy->delete();
+          return response()->json(['mensaje'=>"EL COMENTARIO SE ELIMINO CORRECTAMENTE"]);
+        }
+        else{
+            return response()->json(['mensaje'=>"EL ID DEL COMENTARIO NO FUE ENCONTRADO"]);
+        }
+        return response()->json([
+            'mensaje'=>"ok",
+            "id"=>$id,
+            'Clasificacion'=>$comentariodestroy
+             ]);
     }
 }
