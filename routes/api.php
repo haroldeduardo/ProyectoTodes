@@ -30,14 +30,23 @@ Route::get('/publicacion/{id}',[PublicacioneventoController::class,'show']);
 Route::put('/publicacion/{id}',[PublicacioneventoController::class,'update']);
 Route::delete('/publicacion/{id}',[PublicacioneventoController::class,'destroy']);
 
-Route::get('/archivo',[ArchivoeventoController::class,'index']);
-Route::get('/comentarios',[ComentariosController::class,'index']);
+// CONSULTAS
+
+Route::get('/publicacionconsul',[PublicacioneventoController::class,'fechaeventos']);
+Route::get('/publicacionconsul2',[PublicacioneventoController::class,'ordenar']);
+
+
+
+//Route::get('/archivo',[ArchivoeventoController::class,'index']);
+//Route::get('/comentarios',[ComentariosController::class,'index']);
 //Route::get('/categoria',[CategoriaController::class,'index']);
 //get
 //post
 //delete
 //--------------------------------------------------------------------------
 Route::get('/categoria',[CategoriaController::class,'index']);
+Route::get('/conscategoria',[CategoriaController::class,'consulta']);
+Route::get('/conscategoria2',[CategoriaController::class,'consulta2']);
 Route::get('/categoria/{id}',[CategoriaController::class,'show']);
 Route::post('/categoria',[CategoriaController::class,'store']);
 Route::put('/categoria/{id}',[CategoriaController::class,'update']);
@@ -49,11 +58,11 @@ Route::post('/archivoevento',[ArchivoeventoController::class,'store']);
 Route::put('/archivoevento/{id}',[ArchivoeventoController::class,'update']);
 Route::delete('/archivoevento/{id}',[ArchivoeventoController::class,'destroy']);
 //----------------------------------------------------------------------------
-Route::get('/comentarios_index',[ComentariosController::class,'index']);
-Route::get('/comentarios_show/{id}',[ComentariosController::class,'show']);
-Route::post('/comentarios_store',[ComentariosController::class,'store']);
-Route::put('/comentarios_update/{id}',[ComentariosController::class,'update']);
-Route::delete('/comentarios_destroy/{id}',[ComentariosController::class,'destroy']);
+Route::get('/comentarios',[ComentariosController::class,'index']);
+Route::get('/comentarios/{id}',[ComentariosController::class,'show']);
+Route::post('/comentarios',[ComentariosController::class,'store']);
+Route::put('/comentarios/{id}',[ComentariosController::class,'update']);
+Route::delete('/comentarios/{id}',[ComentariosController::class,'destroy']);
 //----------------------------------------------------------------------------
 
 Route::get('/usuario',[UserController::class,'index']);

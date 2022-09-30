@@ -128,4 +128,23 @@ class PublicacioneventoController extends Controller
             'nombre'=>$publicaciondestroy
              ]);
     }
+
+
+    //CONSULTA EN DONDE  SE VE LA PUBLICACIONES y eventos mayors  a la fecha
+
+    public function  fechaeventos(){
+
+
+        $publicacion = Publicacioneventomodels::whereDate('fecha_y_Hora','>','1972-06-02')->get();
+        return $publicacion;
+    }
+
+
+    // ordenar ascedntemente   los nombres de las publicaciones
+    public function  ordenar(){
+
+
+        $publicacion = Publicacioneventomodels::orderBy('nombre','asc')->get();
+        return $publicacion;
+    }
 }
