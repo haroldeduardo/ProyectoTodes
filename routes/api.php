@@ -52,6 +52,11 @@ Route::delete('/comentarios_destroy/{id}',[ComentariosController::class,'destroy
 //----------------------------------------------------------------------------
 
 Route::get('/usuario',[UserController::class,'index']);
+Route::post('/usuario',[UserController::class,'store']);
+Route::get('/usuario/{id}',[UserController::class,'show']);
+Route::delete('/usuario/{id}',[UserController::class,'destroy']);
+Route::put('/usuario/{id}',[UserController::class,'update']);
+
 
 
 ?>
