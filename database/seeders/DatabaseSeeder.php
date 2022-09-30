@@ -30,6 +30,7 @@ class DatabaseSeeder extends Seeder
        $this->call(categoria_seeder::class);
        $this->call(publicacionevento_seeder::class);
        $this->call(UserTableSeeder::class);
+       $this->call(comentarios_seeder::class);
    
 
     }
