@@ -4,6 +4,8 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use App\Models\Categoriamodels;
+
 
 class categoria_seeder extends Seeder
 {
@@ -14,6 +16,6 @@ class categoria_seeder extends Seeder
      */
     public function run()
     {
-        //
+        Categoriamodels::factory(50)->create();
     }
 }
