@@ -25,6 +25,11 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 Route::get('/publicacion',[PublicacioneventoController::class,'index']);
+Route::post('/publicacion',[PublicacioneventoController::class,'store']);
+Route::get('/publicacion/{id}',[PublicacioneventoController::class,'show']);
+Route::put('/publicacion/{id}',[PublicacioneventoController::class,'update']);
+Route::delete('/publicacion/{id}',[PublicacioneventoController::class,'destroy']);
+
 Route::get('/archivo',[ArchivoeventoController::class,'index']);
 Route::get('/comentarios',[ComentariosController::class,'index']);
 //Route::get('/categoria',[CategoriaController::class,'index']);
