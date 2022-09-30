@@ -24,11 +24,12 @@ class DatabaseSeeder extends Seeder
   
        // $this->call(publicacionevento_seeder::class); 
 
-       //$this->call(publicacionevento::class); 
+       
        $this->call(archivoevento::class); 
        $this->call(eventos_seeder::class);
-
-
+       $this->call(categoria_seeder::class);
+       $this->call(publicacionevento_seeder::class);
+   
 
     }
 }
