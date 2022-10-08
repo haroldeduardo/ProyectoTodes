@@ -16,6 +16,7 @@ class ComentariosController extends Controller
     public function index()
     {
         $comentario=Comentarios::all();
+        return $comentario;
     }
 
     /**
