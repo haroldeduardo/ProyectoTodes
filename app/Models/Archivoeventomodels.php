@@ -17,7 +17,7 @@ class Archivoeventomodels extends Model
         'id_publicacion',
     ];
 
-    public  function publicacion(){
+   /* public  function publicacion(){
         return $this->belongsTo(Publicacionevento::class,'id_publicacion');
-    }
+    }*/
 }
