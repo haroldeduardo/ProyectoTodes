@@ -3,11 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
-
 use App\Models\User;
 use Illuminate\Support\Facades\Validator;
-
 
 class UserController extends Controller
 {
@@ -58,6 +55,17 @@ class UserController extends Controller
     {
         $usuario=User::all();
         return $usuario;
+    }
+
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function create()
+    {
+        $usuario=User::all();
+        return $usuario;
 
     }
 
@@ -69,6 +77,7 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
+
         $validar_usuario=Validator::make($request->all(),
         ["nombre"=>"required"]);//required es necesario
         if(!$validar_usuario->fails())//si al validar no hay falla
@@ -83,6 +92,7 @@ class UserController extends Controller
             $usuario->save();
             return response()->json(['mensaje'=>"QUEDO GUARDADA LA CATEGORIA"]);
           }
+
     }
 
     /**
@@ -104,8 +114,13 @@ class UserController extends Controller
      */
     public function edit($id)
     {
+
         $usuariosshow=User::Where('id',$id)->get();
         return $usuariosshow;
+
+        $usuariosshow=User::Where('id',$id)->get();
+        return $usuariosshow;
+
     }
 
     /**
@@ -117,6 +132,7 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
+
         $validar_usuario=Validator::make
         ($request->all(),["nombre"=>"required"]);
         if(!$validar_usuario->fails())
@@ -144,6 +160,7 @@ class UserController extends Controller
         {
             return response()->json(['mensaje'=>" LA VALIDACION DE USUARIO ES INCORRECTA"]);
         }
+
     }
 
     /**
@@ -154,6 +171,7 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
+        
         $usuariodestroy=User::find($id);
         if(isset($usuariodestroy))
         {
@@ -168,5 +186,6 @@ class UserController extends Controller
             "id"=>$id,
             'nombre'=>$usuariodestroy
              ]);
+
     }
 }
