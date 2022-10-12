@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Publicacioneventomodels extends Model
 {
     use HasFactory;
+    public $timestamps = FALSE;
 
     protected $table = 'publicacionevento';
     protected $fillable = [

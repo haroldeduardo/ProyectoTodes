@@ -106,5 +106,18 @@ class CategoriaController extends Controller
             'nombre'=>$categoriadestroy
              ]);
     }
+
+
+    public function consulta(){
+
+        $categoria = Categoriamodels::where('nombre','=','Christopher Schumm')->get();
+        return $categoria;
+    }
+
+    public function consulta2(){
+
+        $categoria = Categoriamodels::where('nombre','LIKE',"j%")->get();
+        return $categoria;
+    }
 }
 
