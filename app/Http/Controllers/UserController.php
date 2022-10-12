@@ -3,11 +3,52 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+
 use App\Models\User;
 use Illuminate\Support\Facades\Validator;
 
+
+
 class UserController extends Controller
 {
+
+    public function login(Request $request) {
+
+        $request->validate([ //validator
+            "email" => "required|email",
+            "password" => "required"
+        ]);
+
+        $user = User::where("email", "=", $request->email)->first();
+        // revisamos si el id es existente
+        if( isset($user->id) ){
+            // Comprobamos la contraseña ---
+            if(Hash::check($request->password, $user->password)){
+                //creamos el token
+                $token = $user->createToken("auth_token")->plainTextToken;
+                //si está todo es correcto
+                return response()->json([
+                    "status" => 1,
+                    "msg" => "usuario correctamente logeado",
+                    "access_token" => $token,
+                    "id" => $user->id,
+                    "name" => $user->name,
+                ]);
+            }else{
+                return response()->json([
+                    "status" => 0,
+                    "msg" => "password incorrecto",
+                ]);
+            }
+
+        }else{
+            return response()->json([
+                "status" => 0,
+                "msg" => "Usuario no registrado",
+            ]);
+        }
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -41,6 +82,7 @@ class UserController extends Controller
             $usuario->save();
             return response()->json(['mensaje'=>"QUEDO GUARDADA LA CATEGORIA"]);
           }
+
     }
 
     /**
@@ -91,6 +133,7 @@ class UserController extends Controller
         {
             return response()->json(['mensaje'=>" LA VALIDACION DE USUARIO ES INCORRECTA"]);
         }
+
     }
 
     /**
@@ -115,5 +158,6 @@ class UserController extends Controller
             "id"=>$id,
             'nombre'=>$usuariodestroy
              ]);
+
     }
 }

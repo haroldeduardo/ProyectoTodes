@@ -19,17 +19,13 @@ return new class extends Migration
             $table->enum("clasificasion", ["Me interesa", "No me interesa"]);// <-- Aquí el enum
             $table->date ('fecha_comentario');
 
-            $table->foreignId('id_publicacion')
-            ->nullable()
+            $table->foreignId('id_publicacion')    
             ->constrained('publicacionevento')
-            ->cascadeOnUpdate()
-            ->nullOnDelete();
+            ->cascadeOnUpdate();
 
             $table->foreignId('id_usuario')
-            ->nullable()
             ->constrained('users')
-            ->cascadeOnUpdate()
-            ->nullOnDelete();
+            ->cascadeOnUpdate();
 
             $table->timestamps();
         });

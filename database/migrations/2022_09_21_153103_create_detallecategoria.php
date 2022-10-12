@@ -17,10 +17,8 @@ return new class extends Migration
             $table->id();
             $table->enum("prioridad", ["Principal", "Secundario"]);// <-- Aquí el enum
             $table->foreignId('id_publicacion')
-            ->nullable()
             ->constrained('publicacionevento')
-            ->cascadeOnUpdate()
-            ->nullOnDelete();
+            ->cascadeOnUpdate();
 
 
             $table->foreignId('id_categoria')
