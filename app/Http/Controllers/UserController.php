@@ -76,6 +76,8 @@ class UserController extends Controller
            
             $usuario->identificacion = $request->identificacion;
             $usuario->nombre = $request->nombre;
+            $usuario->apellidos = $request->apellidos;
+            $usuario->genero = $request->genero;
             $usuario->fecha_nacimiento = $request->fecha_nacimiento;
             $usuario-> email = $request->email;
             $usuario->password = $request->password;
