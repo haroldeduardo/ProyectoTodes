@@ -13,11 +13,17 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('categoria', function (Blueprint $table) {
+        Schema::create('publicacionevento', function (Blueprint $table) {
             $table->id();
             $table->string('nombre');
             $table->string('descripcion');
-
+            $table->dateTime("fecha_y_Hora");
+            $table->string('lugar');
+            $table->enum("estado", ["activo", "inactivo"]);// <-- Aquí el enum
+            $table->string('urlExterna');
+            $table->string('responsable');
+            $table->date('fecha_caducidad');
+            $table->enum("tipo", ["noticia", "evento"]);// <-- Aquí  enum
             $table->timestamps();
         });
     }
@@ -29,6 +35,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('categoria');
+        Schema::dropIfExists('publicacionevento');
     }
 };

@@ -5,13 +5,13 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Categoria_model extends Model
+class Archivoeventomodels extends Model
 {
     use HasFactory;
-    protected $table ='categoria';
+    public $timestamps = FALSE;
+    protected $table='archivoevento';
     protected $fillable=[
-        'nombre_categoria',
-           'descripcion_categoria',
-            'tipo_categoria'
-    ];
+        'ruta',
+        'id_publicacion',
+   ];
 }

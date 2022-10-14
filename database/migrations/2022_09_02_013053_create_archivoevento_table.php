@@ -13,11 +13,15 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('archivo', function (Blueprint $table) {
+        Schema::create('archivoevento', function (Blueprint $table) {
             $table->id();
-            $table->string('cantidad_file');
-            //$table->string('');
-            $table->timestamps();
+            $table->string('ruta');
+            $table->foreignId('id_publicacion')
+            ->nullable()
+            ->constrained('publicacionevento')
+            ->cascadeOnUpdate()
+            ->nullOnDelete();
+          // $table->timestamps();
         });
     }
 
@@ -28,6 +32,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('archivo');
+        Schema::dropIfExists('archivoevento');
     }
 };

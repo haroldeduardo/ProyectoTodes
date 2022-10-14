@@ -2,6 +2,8 @@
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Archivo_controller;
+use App\Http\Controllers\CategoriaController;
+use App\Http\Controllers\PublicacioneventoController;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Route;
 
@@ -30,11 +32,16 @@ Route::get('/publicacion/{id}',[PublicacioneventoController::class,'show']);
 Route::put('/publicacion/{id}',[PublicacioneventoController::class,'update']);
 Route::delete('/publicacion/{id}',[PublicacioneventoController::class,'destroy']);
 
-// CONSULTAS
+
+/*CONSULTAS Publicacion
+/--------------------------------------------------------------------------------*/
+
 
 Route::get('/publicacionconsul',[PublicacioneventoController::class,'fechaeventos']);
 Route::get('/publicacionconsul2',[PublicacioneventoController::class,'ordenar']);
 
+
+Route::get('/publis_cate',[PublicacioneventoController::class,'Publicaciones_categoria']);
 
 
 //Route::get('/archivo',[ArchivoeventoController::class,'index']);
@@ -51,6 +58,11 @@ Route::get('/categoria/{id}',[CategoriaController::class,'show']);
 Route::post('/categoria',[CategoriaController::class,'store']);
 Route::put('/categoria/{id}',[CategoriaController::class,'update']);
 Route::delete('/categoria/{id}',[CategoriaController::class,'destroy']);
+
+/*CONSULTAS CATEGORIA
+/--------------------------------------------------------------------------------*/
+Route::get('/cates_publi',[CategoriaController::class,'Categorias_publicacion']);
+
 //----------------------------------------------------------------------------
 Route::get('/archivoevento',[ArchivoeventoController::class,'index']);
 Route::get('/archivoevento/{id}',[ArchivoeventoController::class,'show']);
@@ -74,4 +86,6 @@ Route::put('/usuario/{id}',[UserController::class,'update']);
 //--------------------------------------------------------------------------------
 Route::get('/user_login',[UserController::class,'login']);
 Route::post('/user_register',[UserController::class,'registrar']);
+
+
 ?>
