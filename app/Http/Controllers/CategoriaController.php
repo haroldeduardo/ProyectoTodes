@@ -120,6 +120,15 @@ class CategoriaController extends Controller
     }
     public function Categorias_publicacion()
     {
+        /*SELECT c.nombre as nombre_categoria, p.nombre as nombre_publicacion FROM categoria c
+         inner join detallecategoria  dc on dc.id_categoria = c.id
+        INNER join publicacionevento p on p.id = dc.id_publicacion*/
+        $categoria;
+
      //   $categorias = Categoriamodels::
+    }
+    public function Publicaciones_categoria()
+    {
+     //   $publicacion = Publicacioneventomodels::
     }
 }

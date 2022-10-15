@@ -146,8 +146,5 @@ class Evento_controller extends Controller
         $publicacion = Publicacioneventomodels::orderBy('nombre','asc')->get();
         return $publicacion;
     }
-    public function Publicaciones_categoria()
-    {
-     //   $publicacion = Publicacioneventomodels::
-    }
+    
 }
