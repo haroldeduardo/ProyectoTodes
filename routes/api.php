@@ -71,6 +71,6 @@ Route::get('/usuario/{id}',[UserController::class,'show']);
 Route::delete('/usuario/{id}',[UserController::class,'destroy']);
 Route::put('/usuario/{id}',[UserController::class,'update']);
 
-
+Route::resource('users',UserController::class)->names('usuarioCrud');
 
 ?>

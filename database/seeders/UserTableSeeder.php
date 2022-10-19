@@ -15,6 +15,19 @@ class UserTableSeeder extends Seeder
      */
     public function run()
     {
+
+        User::create([
+            'identificacion'=> '121sd',
+            'nombre'=>'joel hernandez',
+            'apellidos'=> 'hernandez',
+            'genero' => 'masculino',
+            'fecha_nacimiento'=> '2022-09-14',
+            'email'=>'joel@gmail.com',
+            'password'=> '12345mmlklkm'
+            
+
+            
+        ])->assignRole('Admin');
         User::factory()->count(50)->create();
     }
 }

@@ -2,10 +2,15 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Http\Controller;
 use Illuminate\Http\Request;
 
 use App\Models\User;
+use Spatie\Permission\Models\Role;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Arr;
 
 
 
@@ -59,6 +64,13 @@ class UserController extends Controller
         $usuario=User::all();
         return $usuario;
     }
+
+    public function create()
+        {
+           $roles = Role::pluck('name', 'name')->all(); 
+           return $roles;
+        }
+    
 
     /**
      * Store a newly created resource in storage.
