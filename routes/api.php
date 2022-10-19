@@ -61,7 +61,7 @@ Route::delete('/categoria/{id}',[CategoriaController::class,'destroy']);
 
 /*CONSULTAS CATEGORIA
 /--------------------------------------------------------------------------------*/
-Route::get('/cates_publi',[CategoriaController::class,'Categorias_publicacion']);
+Route::get('/cates_publi',[CategoriaController::class,'Publicaciones_categoria']);
 
 //----------------------------------------------------------------------------
 Route::get('/archivoevento',[ArchivoeventoController::class,'index']);
