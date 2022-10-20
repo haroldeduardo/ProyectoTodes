@@ -5,7 +5,7 @@ namespace Database\Seeders;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;//importo DB
-
+use App\Models\Categoriamodels;
 class Categoria_seeder extends Seeder
 {
     /**
@@ -15,6 +15,7 @@ class Categoria_seeder extends Seeder
      */
     public function run()
     {
+        Categoriamodels::factory(50)->create();/*
         DB::table('categoria')->insert
         (
          [
@@ -23,6 +24,6 @@ class Categoria_seeder extends Seeder
              'tipo_categoria'=> 'reporte'
 
          ]
-        );
+        );*/
     }
 }
