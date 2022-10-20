@@ -13,8 +13,15 @@ class Publicacioneventomodels extends Model
     protected $table = 'publicacionevento';
     protected $fillable = [
    
-        'Nombre',
-        'Descripcion',
+        'nombre',
+        'descripcion',
+        'fecha_y_Hora',
+        'luga',
+        'estado',
+        'url',
+        'reponsable',
+        'fecha_caducidad',
+        'tipo',
         
        
         

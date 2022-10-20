@@ -22,6 +22,9 @@ class DatabaseSeeder extends Seeder
        $this->call(publicacionevento_seeder::class);       
        $this->call(comentarios_seeder::class);
        $this->call(archivoevento::class);
+       $this->call(detallecategoria_seeder::class);
+       
+
 
     }
 }
