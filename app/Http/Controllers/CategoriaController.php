@@ -118,24 +118,64 @@ class CategoriaController extends Controller
         $categoria = Categoriamodels::where('nombre','LIKE',"j%")->get();
         return $categoria;
     }
+
     public function Categorias_publicacion()
     {
-
-
-
-     //   $categorias = Categoriamodels::
-    }
-    public function Publicaciones_categoria()
-    {
-         /*SELECT c.nombre as nombre_categoria, p.nombre as nombre_publicacion FROM categoria c
+    /*  SELECT c.nombre as nombre_categoria, COUNT(p.id) FROM categoria c
          inner join detallecategoria  dc on dc.id_categoria = c.id
-        INNER join publicacionevento p on p.id = dc.id_publicacion*/
-        $publicacion_por_categoria = DB::table('categoria as c')
-        ->select('c.nombre as nombre_categoria','p.nombre as nombre_publicacion')
-        ->join('detallecategoria as dc','dc.id_categoria','=','c.id')
-        ->join('publicacionevento as p','p.id','=','dc.id_publicacion')
-        ->get();
-    }
+         INNER join publicacionevento p on p.id = dc.id_publicacion
+         GROUP by c.nombre; */
+         $categorias = DB::table('categoria AS c')
+         ->select('c.nombre AS nombre_categoria',DB::raw('count(p.id) AS total'))
+         ->join('detallecategoria AS dc','dc.id_categoria','=','c.id')
+         ->join('publicacionevento AS p','p.id','=','dc.id_publicacion')
+         ->groupBy('c.nombre')
+         ->get();
+         return $categorias;
+     }
+     public function Publicaciones_categoria()
+     {
+          /*SELECT c.nombre as nombre_categoria, p.nombre as nombre_publicacion FROM categoria c
+          inner join detallecategoria  dc on dc.id_categoria = c.id
+          INNER join publicacionevento p on p.id = dc.id_publicacion*/
+         $publicacion_por_categoria = DB::table('categoria AS c')
+         ->select('c.nombre AS nombre_categoria','p.nombre AS nombre_publicacion')
+         ->join('detallecategoria AS dc','dc.id_categoria','=','c.id')
+         ->join('publicacionevento AS p','p.id','=','dc.id_publicacion')
+          ->get();
+         return $publicacion_por_categoria;
+     }
+ 
+     public function Estadoactiva_publicacion()
+     {
+          /*SELECT c.nombre as nombre_categoria,p.nombre as nombre_publicacion, p.estado  FROM categoria c
+            inner join detallecategoria  dc on dc.id_categoria = c.id
+            INNER join publicacionevento p on p.id = dc.id_publicacion
+             WHERE p.estado="activo" OR p.estado="inactivo";*/
+         $publicacion_por_categoria = DB::table('categoria AS c')
+         ->select('c.nombre AS nombre_categoria','p.nombre AS nombre_publicacion','p.estado AS estado')
+         ->join('detallecategoria AS dc','dc.id_categoria','=','c.id')
+         ->join('publicacionevento AS p','p.id','=','dc.id_publicacion')
+         ->where('p.estado','=','activo')
+         ->orwhere('p.estado','=','inactivo')
+          ->get();
+         return $publicacion_por_categoria;
+     }
+
+     public function Estadoinactiva_publicacion()
+     {
+          /*SELECT c.nombre as nombre_categoria,p.nombre as nombre_publicacion, p.estado  FROM categoria c
+            inner join detallecategoria  dc on dc.id_categoria = c.id
+            INNER join publicacionevento p on p.id = dc.id_publicacion
+             WHERE p.estado="activo" OR p.estado="inactivo";*/
+         $publicacion_por_categoria = DB::table('categoria AS c')
+         ->select('c.nombre AS nombre_categoria','p.nombre AS nombre_publicacion','p.estado AS estado')
+         ->join('detallecategoria AS dc','dc.id_categoria','=','c.id')
+         ->join('publicacionevento AS p','p.id','=','dc.id_publicacion')
+         ->where('p.estado','=','inactivo')
+          ->get();
+         return $publicacion_por_categoria;
+     }
 
 
     

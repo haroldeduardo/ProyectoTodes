@@ -59,9 +59,18 @@ Route::post('/categoria',[CategoriaController::class,'store']);
 Route::put('/categoria/{id}',[CategoriaController::class,'update']);
 Route::delete('/categoria/{id}',[CategoriaController::class,'destroy']);
 
+
 /*CONSULTAS CATEGORIA
 /--------------------------------------------------------------------------------*/
+
+
+Route::get('/publi_cate',[CategoriaController::class,'Categorias_publicacion']);
+
 Route::get('/cates_publi',[CategoriaController::class,'Publicaciones_categoria']);
+
+Route::get('/estado_publi',[CategoriaController::class,'Estadoactiva_publicacion']);
+
+Route::get('/estadoinac_publi',[CategoriaController::class,'Estadoinactiva_publicacion']);
 
 //----------------------------------------------------------------------------
 Route::get('/archivoevento',[ArchivoeventoController::class,'index']);

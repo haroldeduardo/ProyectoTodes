@@ -5,7 +5,7 @@ use App\Models\Publicacioneventomodels;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Http\Request;
 
-class Evento_controller extends Controller
+class PublicacioneventoController extends Controller
 {
     /**
      * Display a listing of the resource.
