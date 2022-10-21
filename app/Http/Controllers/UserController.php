@@ -6,7 +6,9 @@ use Illuminate\Http\Request;
 
 use App\Models\User;
 use Illuminate\Support\Facades\Validator;
-
+use Illuminate\Support\Facades\Hash;
+use App\http\Controllers\Controller;
+use Illuminate\Support\Facades\Crypt;
 
 
 class UserController extends Controller
@@ -22,8 +24,9 @@ class UserController extends Controller
         $user = User::where("email", "=", $request->email)->first();
         // revisamos si el id es existente
         if( isset($user->id) ){
+            $check=Hash::check($request->password ,$user->password);
             // Comprobamos la contraseña ---
-            if(Hash::check($request->password, $user->password)){
+            if(Hash::check($request->password ,$user->password)){
                 //creamos el token
                 $token = $user->createToken("auth_token")->plainTextToken;
                 //si está todo es correcto
@@ -33,11 +36,14 @@ class UserController extends Controller
                     "access_token" => $token,
                     "id" => $user->id,
                     "name" => $user->name,
+                    "log"=> $check
                 ]);
             }else{
                 return response()->json([
                     "status" => 0,
-                    "msg" => "password incorrecto",
+                    "msg" => "usuario incorrecto logeado",
+                    
+                    
                 ]);
             }
 
@@ -45,6 +51,7 @@ class UserController extends Controller
             return response()->json([
                 "status" => 0,
                 "msg" => "Usuario no registrado",
+
             ]);
         }
     }
@@ -161,5 +168,28 @@ class UserController extends Controller
             'nombre'=>$usuariodestroy
              ]);
 
+    }
+
+
+    public function registrar(Request $request)
+    {
+            $validar_registro=Validator::make($request->all(),
+            ["password"=>"required"]);
+            if(!$validar_registro->fails())
+            {
+                $usuario=new User();
+                $usuario->identificacion = $request->identificacion;
+                $usuario->nombre = $request->nombre;
+                $usuario->apellidos = $request->apellidos;
+                $usuario->genero=$request->genero;
+                $usuario->fecha_nacimiento = $request->fecha_nacimiento;
+                $usuario->email = $request->email;
+                $usuario->password = $request->password;
+                $usuario->save();
+                return response()->json(['mensaje'=>"EL USUARIO SE REGISTRO CORRECTAMENTE"]);
+          
+            }
+            
+           // return response()->json(['mensaje'=>"Usuario registrado correctamente"]);
     }
 }
