@@ -42,6 +42,7 @@ Route::get('/publicacionconsul2',[PublicacioneventoController::class,'ordenar'])
 
 
 Route::get('/publis_cate',[PublicacioneventoController::class,'Publicaciones_categoria']);
+Route::get('/noticias',[PublicacioneventoController::class,'publicacionNoticia']);
 
 
 //Route::get('/archivo',[ArchivoeventoController::class,'index']);

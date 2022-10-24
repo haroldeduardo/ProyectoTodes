@@ -150,12 +150,11 @@ class CategoriaController extends Controller
           /*SELECT c.nombre as nombre_categoria,p.nombre as nombre_publicacion, p.estado  FROM categoria c
             inner join detallecategoria  dc on dc.id_categoria = c.id
             INNER join publicacionevento p on p.id = dc.id_publicacion
-             WHERE p.estado="activo" OR p.estado="inactivo";*/
+             WHERE p.estado="activo" ;*/
          $publicacion_por_categoria = Categoriamodels::select('categoria.nombre AS nombre_categoria','p.nombre AS nombre_publicacion','p.estado AS estado')
          ->join('detallecategoria AS dc','dc.id_categoria','=','categoria.id')
          ->join('publicacionevento AS p','p.id','=','dc.id_publicacion')
          ->where('p.estado','=','activo')
-         ->orwhere('p.estado','=','inactivo')
           ->get();
          return $publicacion_por_categoria;
      }
@@ -165,7 +164,7 @@ class CategoriaController extends Controller
           /*SELECT c.nombre as nombre_categoria,p.nombre as nombre_publicacion, p.estado  FROM categoria c
             inner join detallecategoria  dc on dc.id_categoria = c.id
             INNER join publicacionevento p on p.id = dc.id_publicacion
-             WHERE p.estado="activo" OR p.estado="inactivo";*/
+             WHERE p.estado="inactivo";*/
          $publicacion_por_categoria =Categoriamodels::select('categoria.nombre AS nombre_categoria','p.nombre AS nombre_publicacion','p.estado AS estado')
          ->join('detallecategoria AS dc','dc.id_categoria','=','categoria.id')
          ->join('publicacionevento AS p','p.id','=','dc.id_publicacion')
