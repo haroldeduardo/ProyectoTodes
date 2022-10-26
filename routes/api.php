@@ -72,6 +72,6 @@ Route::delete('/usuario/{id}',[UserController::class,'destroy']);
 Route::put('/usuario/{id}',[UserController::class,'update']);
 
 Route::post('/user_register',[UserController::class,'registrar']);
-Route::get('/login',[UserController::class,'login']);
+Route::post('/login',[UserController::class,'login']);
 
 ?>
