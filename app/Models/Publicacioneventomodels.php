@@ -16,7 +16,7 @@ class Publicacioneventomodels extends Model
         'nombre',
         'descripcion',
         'fecha_y_Hora',
-        'luga',
+        'lugar',
         'estado',
         'url',
         'reponsable',
