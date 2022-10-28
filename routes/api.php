@@ -57,7 +57,7 @@ Route::get('/archivoevento/{id}',[ArchivoeventoController::class,'show']);
 Route::post('/archivoevento',[ArchivoeventoController::class,'store']);
 Route::put('/archivoevento/{id}',[ArchivoeventoController::class,'update']);
 Route::delete('/archivoevento/{id}',[ArchivoeventoController::class,'destroy']);
-//----------------------------------------------------------------------------
+//---------------------------------------------------------------------------
 Route::get('/comentarios',[ComentariosController::class,'index']);
 Route::get('/comentarios/{id}',[ComentariosController::class,'show']);
 Route::post('/comentarios',[ComentariosController::class,'store']);
