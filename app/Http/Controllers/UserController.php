@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Controller;
 use Illuminate\Http\Request;
-
 use App\Models\User;
 use Spatie\Permission\Models\Role;
 use Illuminate\Support\Facades\Validator;
@@ -14,11 +13,8 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Arr;
 
 
-
-
 class UserController extends Controller
 {
-
     public function login(Request $request) {
 
         $request->validate([ //validator
@@ -67,6 +63,7 @@ class UserController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
+
     {
         $usuario=User::all();
         return $usuario;
@@ -78,7 +75,6 @@ class UserController extends Controller
            return $roles;
         }
     
-
     /**
      * Store a newly created resource in storage.
      *
@@ -103,6 +99,7 @@ class UserController extends Controller
             $usuario->save();
             return response()->json(['mensaje'=>"QUEDO GUARDADA LA CATEGORIA"]);
           }
+
 
     }
 
@@ -129,6 +126,7 @@ class UserController extends Controller
     {
         $validar_usuario=Validator::make
         ($request->all(),["nombre"=>"required"]);
+
         if(!$validar_usuario->fails())
         {
             $usuario = User::find($id);
@@ -139,7 +137,6 @@ class UserController extends Controller
                     $usuario->fecha_nacimiento = $request->fecha_nacimiento;
                     $usuario-> email = $request->email;
                     $usuario->password = $request->password;
-       
                     
                     $usuario->save();
                     return response()->json(['mensaje'=>"USUARIO ACTUALIZADO"]);
@@ -181,6 +178,7 @@ class UserController extends Controller
     }
 
 
+
     public function registrar(Request $request)
     {
             $validar_registro=Validator::make($request->all(),
@@ -202,4 +200,28 @@ class UserController extends Controller
             
            // return response()->json(['mensaje'=>"Usuario registrado correctamente"]);
     }
+
+
+/*
+    //Se comenta por existir uno de la rama de Yuliet
+    public function login(Request $request)
+    {
+        $usu=User::Where('email',$request->email)->get();
+        
+            if($usu->password==$request->password)
+            {
+                return response()->json(['mensaje'=>"Usuario correcto"]);
+                return $usu;
+            }
+            else
+            {
+                return response()->json(['mensaje'=>"Usuario incorrecto"]);
+            }
+        
+        
+    }
+    */
 }
+
+?>
+

@@ -19,5 +19,6 @@ class Categoriamodels extends Model
 
     public  function publicaciones(){
         return $this->belongsToMany(Publicacionevento::class,'detallecategoria');
+
     }
 }

@@ -8,8 +8,6 @@ use Illuminate\Database\Eloquent\Model;
 class Archivoeventomodels extends Model
 {
     use HasFactory;
-
-
     public $timestamps = FALSE;
     protected $table = 'archivoevento';
     protected $fillable = [
@@ -20,4 +18,5 @@ class Archivoeventomodels extends Model
    /* public  function publicacion(){
         return $this->belongsTo(Publicacionevento::class,'id_publicacion');
     }*/
+
 }

@@ -13,10 +13,15 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('categoria', function (Blueprint $table) {
+        Schema::create('archivoevento', function (Blueprint $table) {
             $table->id();
-            $table->string('nombre');
-            $table->string('descripcion');
+            $table->string('ruta');
+            $table->foreignId('id_publicacion')
+            ->nullable()
+            ->constrained('publicacionevento')
+            ->cascadeOnUpdate()
+            ->nullOnDelete();
+          // $table->timestamps();
         });
     }
 
@@ -27,6 +32,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('categoria');
+        Schema::dropIfExists('archivoevento');
     }
 };

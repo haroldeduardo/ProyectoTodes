@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Publicacioneventomodels;
 use Illuminate\Support\Facades\Validator;
 
+
 class PublicacioneventoController extends Controller
 {
     /**
@@ -32,8 +33,6 @@ class PublicacioneventoController extends Controller
         if(!$validar_publicacion->fails())//si al validar no hay falla
           {
             $publicacion= new Publicacioneventomodels();
-           
-           
             $publicacion->nombre = $request->nombre;
             $publicacion->descripcion = $request->descripcion;
             $publicacion-> fecha_y_Hora = $request->fecha_y_Hora;
@@ -43,7 +42,6 @@ class PublicacioneventoController extends Controller
             $publicacion->responsable = $request->responsable;
             $publicacion->fecha_caducidad = $request->fecha_caducidad;
             $publicacion->tipo = $request->tipo;
-            
             $publicacion->save();
             return response()->json(['mensaje'=>"QUEDO GUARDADA LA PUBLICACION"]);
           }
@@ -77,8 +75,6 @@ class PublicacioneventoController extends Controller
             $publicacion = Publicacioneventomodels::find($id);
                 if(isset($publicacion))
                 {
-                    
-
                     $publicacion->nombre = $request->nombre;
                     $publicacion->descripcion = $request->descripcion;
                     $publicacion-> fecha_y_Hora = $request->fecha_y_Hora;
@@ -88,11 +84,8 @@ class PublicacioneventoController extends Controller
                     $publicacion->responsable = $request->responsable;
                     $publicacion->fecha_caducidad = $request->fecha_caducidad;
                     $publicacion->tipo = $request->tipo;
-                    
                     $publicacion->save();
-                    
-                    
-                   
+
                     return response()->json(['mensaje'=>"PUBLICACIO ACTUALIZADA"]);
                 }
                  else{
@@ -147,4 +140,27 @@ class PublicacioneventoController extends Controller
         $publicacion = Publicacioneventomodels::orderBy('nombre','asc')->get();
         return $publicacion;
     }
+
+
+    public function publicacionNoticia()
+    {
+       /* SELECT publicacionevento.nombre,publicacionevento.descripcion,publicacionevento.lugar,
+        publicacionevento.responsable,publicacionevento.estado,publicacionevento.tipo,ar.ruta FROM publicacionevento 
+        INNER JOIN archivoevento AS ar on ar.id = publicacionevento.id
+        WHERE publicacionevento.estado ="activo" AND publicacionevento.tipo ="noticia" 
+        
+        https://roopashree-uthamacholan.medium.com/retrofit-common-errors-solved-d175d89660fe
+        ;
+       */
+
+    $publicacion_noticia = Publicacioneventomodels::select('publicacionevento.nombre AS nombre_publicacion','publicacionevento.descripcion AS descripcion_publicacion','publicacionevento.lugar',
+    'publicacionevento.responsable','publicacionevento.estado','publicacionevento.tipo','ar.ruta AS ruta_archivo')
+    ->join('archivoevento AS ar','ar.id','=','publicacionevento.id')
+    ->where('publicacionevento.estado','=','activo')
+    ->where('publicacionevento.tipo','=','noticia')
+    ->get();
+    return $publicacion_noticia;
+    }
+    
+
 }

@@ -18,6 +18,7 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
 
+<<<<<<< HEAD
        $this->call(eventos_seeder::class);
        $this->call(categoria_seeder::class);
        $this->call(publicacionevento_seeder::class);       
@@ -28,5 +29,18 @@ class DatabaseSeeder extends Seeder
        $this->call(comentarios_seeder::class);
 
 
+=======
+        // \App\Models\User::factory()->create([
+        //     'name' => 'Test User',
+        //     'email' => 'test@example.com',
+        // ]);
+      
+        $this->call(Evento_seeder::class);
+      
+       $this->call(Publicacionevento_seeder::class);
+       $this->call(UserTableSeeder_seeder::class);
+       $this->call(Comentario_seeder::class);
+   
+>>>>>>> camilo
     }
 }

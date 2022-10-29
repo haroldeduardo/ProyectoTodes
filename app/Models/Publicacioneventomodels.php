@@ -9,7 +9,6 @@ class Publicacioneventomodels extends Model
 {
     use HasFactory;
     public $timestamps = FALSE;
-
     protected $table = 'publicacionevento';
     protected $fillable = [
    
@@ -23,8 +22,8 @@ class Publicacioneventomodels extends Model
         'fecha_caducidad',
         'tipo',
         
-       
         
+
     ];
 
     public  function archivo(){
