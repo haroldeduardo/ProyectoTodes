@@ -24,7 +24,7 @@ class UserTableSeeder extends Seeder
              'genero'=>'femenino',
              'fecha_nacimiento'=>'20-10-08',
              'email'=>'admin@gmail.com',
-             'password'=>Hash::make('12345')]);
+             'password'=>Hash::make('12345')])->assignRole('Admin');
 
 
 
@@ -35,7 +35,17 @@ class UserTableSeeder extends Seeder
                  'genero'=>'femenino',
                  'fecha_nacimiento'=>'14-08-11',
                  'email'=>'admin12@gmail.com',
-                 'password'=>Hash::make('456789')]);
+                 'password'=>Hash::make('456789')])->assignRole('Admin');
+
+            User::create([ 
+            'identificacion'=> '121sd',
+            'nombre'=>'joel hernandez',
+            'apellidos'=> 'hernandez',
+            'genero' => 'masculino',
+            'fecha_nacimiento'=> '2022-09-14',
+            'email'=>'joel@gmail.com',
+            'password'=> Hash::make('12345mmlklkm')])->assignRole('UserComunidad');
+
         User::factory()->count(50)->create();
         
     }

@@ -74,4 +74,8 @@ Route::put('/usuario/{id}',[UserController::class,'update']);
 Route::post('/user_register',[UserController::class,'registrar']);
 Route::post('/login',[UserController::class,'login']);
 
+//Agregado por Joel, en el trabajo con los roles **********  PROBAR
+Route::resource('users',UserController::class)->names('usuarioCrud');
+
+
 ?>
