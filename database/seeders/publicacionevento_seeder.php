@@ -14,10 +14,7 @@ class Publicacionevento_seeder extends Seeder
      * @return void
      */
     public function run()
-    {
-        
+    {        
         Publicacioneventomodels::factory(50)->create();
-
-
     }
 }
