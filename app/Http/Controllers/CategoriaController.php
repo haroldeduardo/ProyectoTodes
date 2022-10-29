@@ -97,9 +97,7 @@ class CategoriaController extends Controller
           $categoriadestroy->delete();
           return response()->json(['mensaje'=>"LA CATEGORIA SE ELIMINO CORRECTAMENTE"]);
         }
-        else{
-            return response()->json(['mensaje'=>"EL ID DE LA CATEGORIA NO FUE ENCONTRADO"]);
-        }
+        
         return response()->json([
             'mensaje'=>"ok",
             "id"=>$id,

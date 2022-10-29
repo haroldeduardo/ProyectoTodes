@@ -4,6 +4,7 @@ namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
 use App\Models\Archivoeventomodels ;
+use App\Models\Publicacioneventomodels;
 
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Archivoeventomodels>
@@ -24,7 +25,8 @@ class ArchivoeventomodelsFactory extends Factory
         return [
             
             'ruta'=>$this->faker->url (),
-            'id_publicacion'=>$this->faker->numberBetween(1,40),
+            'id_publicacion'=> $this->faker->numberBetween(1,20),
+            
         ];
     }
 }
