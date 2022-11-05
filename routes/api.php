@@ -86,6 +86,8 @@ Route::resource('users',UserController::class)->names('usuarioCrud');
 // Rutas agregadas por Juan Camilo
 Route::get('/user_login',[UserController::class,'login']);
 Route::post('/user_register',[UserController::class,'registrar']);
+Route::get('/consultamuchos',[CategoriaController::class,'Publicaciones_categoria']);
+
 
 
 ?>
