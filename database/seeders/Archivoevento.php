@@ -4,9 +4,9 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
-use App\Models\Publicacioneventomodels;
-
-class publicacionevento_seeder extends Seeder
+use Illuminate\Support\Facades\DB;
+use App\Models\Archivoeventomodels ;
+class Archivoevento extends Seeder
 {
     /**
      * Run the database seeds.
@@ -15,6 +15,6 @@ class publicacionevento_seeder extends Seeder
      */
     public function run()
     {
-        Publicacioneventomodels::factory(50)->create();
+        Archivoeventomodels::factory(50)->create();
     }
 }

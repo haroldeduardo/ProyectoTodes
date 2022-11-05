@@ -18,10 +18,8 @@ return new class extends Migration
           
             $table->string('ruta');
             $table->foreignId('id_publicacion')
-            ->nullable()
             ->constrained('publicacionevento')
-            ->cascadeOnUpdate()
-            ->nullOnDelete();
+            ->cascadeOnDelete()->cascadeOnUpdate();
         });
     }
 

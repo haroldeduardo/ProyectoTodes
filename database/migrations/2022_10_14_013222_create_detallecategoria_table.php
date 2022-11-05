@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('detallecategoria', function (Blueprint $table) {
             $table->id();
-            $table->enum("prioridad", ["Principal", "Secundario"]);// <-- Aquí el enum
+             $table->enum("prioridad", ["Principal", "Secundario"]);// <-- Aquí el enum
             $table->foreignId('id_publicacion')
             ->nullable()
             ->constrained('publicacionevento')
@@ -28,6 +28,7 @@ return new class extends Migration
             ->constrained('categoria')
             ->cascadeOnUpdate()
             ->nullOnDelete();
+            $table->timestamps();
         });
     }
 

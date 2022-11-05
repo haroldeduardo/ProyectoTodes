@@ -1,11 +1,13 @@
 <?php
 
 use Illuminate\Http\Request;
+
 use App\Http\Controllers\PublicacioneventoController ;
 use App\Http\Controllers\ArchivoeventoController ;
 use App\Http\Controllers\ComentariosController ;
 use App\Http\Controllers\CategoriaController ;
 use App\Http\Controllers\UserController ;
+
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Route;
 
@@ -51,13 +53,14 @@ Route::get('/categoria/{id}',[CategoriaController::class,'show']);
 Route::post('/categoria',[CategoriaController::class,'store']);
 Route::put('/categoria/{id}',[CategoriaController::class,'update']);
 Route::delete('/categoria/{id}',[CategoriaController::class,'destroy']);
+
 //----------------------------------------------------------------------------
 Route::get('/archivoevento',[ArchivoeventoController::class,'index']);
 Route::get('/archivoevento/{id}',[ArchivoeventoController::class,'show']);
 Route::post('/archivoevento',[ArchivoeventoController::class,'store']);
 Route::put('/archivoevento/{id}',[ArchivoeventoController::class,'update']);
 Route::delete('/archivoevento/{id}',[ArchivoeventoController::class,'destroy']);
-//----------------------------------------------------------------------------
+
 Route::get('/comentarios',[ComentariosController::class,'index']);
 Route::get('/comentarios/{id}',[ComentariosController::class,'show']);
 Route::post('/comentarios',[ComentariosController::class,'store']);
@@ -72,5 +75,20 @@ Route::delete('/usuario/{id}',[UserController::class,'destroy']);
 Route::put('/usuario/{id}',[UserController::class,'update']);
 
 
+Route::post('/user_register',[UserController::class,'registrar']);
+Route::post('/login',[UserController::class,'login']);
+
+//Agregado por Joel, en el trabajo con los roles **********  PROBAR
+Route::resource('users',UserController::class)->names('usuarioCrud');
+
+
+
+// Rutas agregadas por Juan Camilo
+Route::get('/user_login',[UserController::class,'login']);
+Route::post('/user_register',[UserController::class,'registrar']);
+Route::get('/consultamuchos',[CategoriaController::class,'Publicaciones_categoria']);
+
+
 
 ?>
+

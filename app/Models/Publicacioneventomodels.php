@@ -9,15 +9,21 @@ class Publicacioneventomodels extends Model
 {
     use HasFactory;
     public $timestamps = FALSE;
-
     protected $table = 'publicacionevento';
     protected $fillable = [
    
-        'Nombre',
-        'Descripcion',
+        'nombre',
+        'descripcion',
+        'fecha_y_Hora',
+        'lugar',
+        'estado',
+        'url',
+        'reponsable',
+        'fecha_caducidad',
+        'tipo',
         
-       
         
+
     ];
 
     public  function archivo(){

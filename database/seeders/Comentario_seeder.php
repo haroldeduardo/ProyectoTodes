@@ -5,8 +5,8 @@ namespace Database\Seeders;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
-use App\Models\Archivoeventomodels ;
-class Archivoevento extends Seeder
+use App\Models\Comentarios;
+class Comentario_seeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -15,6 +15,6 @@ class Archivoevento extends Seeder
      */
     public function run()
     {
-        Archivoeventomodels::factory(50)->create();
+        Comentarios::factory(50)->create();
     }
 }

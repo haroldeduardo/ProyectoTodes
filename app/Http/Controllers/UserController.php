@@ -2,23 +2,79 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Http\Controller;
 use Illuminate\Http\Request;
 use App\Models\User;
+use Spatie\Permission\Models\Role;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Crypt;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Arr;
+
 
 class UserController extends Controller
 {
+    public function login(Request $request) {
+
+        $request->validate([ //validator
+            "email" => "required|email",
+            "password" => "required"
+        ]);
+
+        $user = User::where("email", "=", $request->email)->first();
+        // revisamos si el id es existente
+        if( isset($user->id) ){
+            $check=Hash::check($request->password ,$user->password);
+            // Comprobamos la contraseña ---
+            if(Hash::check($request->password ,$user->password)){
+                //creamos el token
+                $token = $user->createToken("auth_token")->plainTextToken;
+                //si está todo es correcto
+                return response()->json([
+                    "status" => 1,
+                    "msg" => "usuario correctamente logeado",
+                    "access_token" => $token,
+                    "id" => $user->id,
+                    "name" => $user->name,
+                    "log"=> $check
+                ]);
+            }else{
+                return response()->json([
+                    "status" => 0,
+                    "msg" => "usuario incorrecto logeado",
+                    
+                    
+                ]);
+            }
+
+        }else{
+            return response()->json([
+                "status" => 0,
+                "msg" => "Usuario no registrado",
+
+            ]);
+        }
+    }
+
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
     public function index()
+
     {
         $usuario=User::all();
         return $usuario;
     }
 
+    public function create()
+        {
+           $roles = Role::pluck('name', 'name')->all(); 
+           return $roles;
+        }
+    
     /**
      * Store a newly created resource in storage.
      *
@@ -35,12 +91,16 @@ class UserController extends Controller
            
             $usuario->identificacion = $request->identificacion;
             $usuario->nombre = $request->nombre;
+            $usuario->apellidos = $request->apellidos;
+            $usuario->genero = $request->genero;
             $usuario->fecha_nacimiento = $request->fecha_nacimiento;
             $usuario-> email = $request->email;
             $usuario->password = $request->password;
             $usuario->save();
             return response()->json(['mensaje'=>"QUEDO GUARDADA LA CATEGORIA"]);
           }
+
+
     }
 
     /**
@@ -66,6 +126,7 @@ class UserController extends Controller
     {
         $validar_usuario=Validator::make
         ($request->all(),["nombre"=>"required"]);
+
         if(!$validar_usuario->fails())
         {
             $usuario = User::find($id);
@@ -76,9 +137,6 @@ class UserController extends Controller
                     $usuario->fecha_nacimiento = $request->fecha_nacimiento;
                     $usuario-> email = $request->email;
                     $usuario->password = $request->password;
-
-
-                    
                     
                     $usuario->save();
                     return response()->json(['mensaje'=>"USUARIO ACTUALIZADO"]);
@@ -91,6 +149,7 @@ class UserController extends Controller
         {
             return response()->json(['mensaje'=>" LA VALIDACION DE USUARIO ES INCORRECTA"]);
         }
+
     }
 
     /**
@@ -115,5 +174,54 @@ class UserController extends Controller
             "id"=>$id,
             'nombre'=>$usuariodestroy
              ]);
+
     }
+
+
+
+    public function registrar(Request $request)
+    {
+            $validar_registro=Validator::make($request->all(),
+            ["password"=>"required"]);
+            if(!$validar_registro->fails())
+            {
+                $usuario=new User();
+                $usuario->identificacion = $request->identificacion;
+                $usuario->nombre = $request->nombre;
+                $usuario->apellidos = $request->apellidos;
+                $usuario->genero=$request->genero;
+                $usuario->fecha_nacimiento = $request->fecha_nacimiento;
+                $usuario->email = $request->email;
+                $usuario->password = $request->password;
+                $usuario->save();
+                return response()->json(['mensaje'=>"EL USUARIO SE REGISTRO CORRECTAMENTE"]);
+          
+            }
+            
+           // return response()->json(['mensaje'=>"Usuario registrado correctamente"]);
+    }
+
+
+/*
+    //Se comenta por existir uno de la rama de Yuliet
+    public function login(Request $request)
+    {
+        $usu=User::Where('email',$request->email)->get();
+        
+            if($usu->password==$request->password)
+            {
+                return response()->json(['mensaje'=>"Usuario correcto"]);
+                return $usu;
+            }
+            else
+            {
+                return response()->json(['mensaje'=>"Usuario incorrecto"]);
+            }
+        
+        
+    }
+    */
 }
+
+?>
+

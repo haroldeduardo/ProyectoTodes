@@ -3,12 +3,12 @@
 namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
-use App\Models\Categoriamodels;
+use App\Models\Detallecategoriamodels;
 
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Model>
  */
-class CategoriaFactory extends Factory
+class DetallecategoriamodelsFactory extends Factory
 {
     /**
      * Define the model's default state.
@@ -16,14 +16,13 @@ class CategoriaFactory extends Factory
      * @return array<string, mixed>
      */
 
-     protected $model = Categoriamodels::class;
-
-
+    protected  $model = Detallecategoriamodels::class;
     public function definition()
     {
         return [
-            'nombre'=>$this->faker->setence(),
-            'descripcion'=>$this->faker->paragraph()
+             
+            'id_publicacion'=> $this->faker->numberBetween(1,20),
+            'id_publicacion'=> $this->faker->numberBetween(1,20),
         ];
     }
 }
