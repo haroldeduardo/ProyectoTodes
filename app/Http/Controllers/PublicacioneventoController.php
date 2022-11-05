@@ -153,7 +153,9 @@ class PublicacioneventoController extends Controller
         publicacionevento.responsable,publicacionevento.estado,publicacionevento.tipo,ar.ruta FROM publicacionevento 
         INNER JOIN archivoevento AS ar on ar.id = publicacionevento.id
         WHERE publicacionevento.estado ="activo" AND publicacionevento.tipo ="noticia" 
-        
+
+    
+
         https://roopashree-uthamacholan.medium.com/retrofit-common-errors-solved-d175d89660fe
         ;
     */
