@@ -154,7 +154,8 @@ class PublicacioneventoController extends Controller
         INNER JOIN archivoevento AS ar on ar.id = publicacionevento.id
         WHERE publicacionevento.estado ="activo" AND publicacionevento.tipo ="noticia" 
 
-    
+    Creating ⬢ conection-android-camilo... done
+https://conection-android-camilo.herokuapp.com/ | https://git.heroku.com/conection-android-camilo.git
 
         https://roopashree-uthamacholan.medium.com/retrofit-common-errors-solved-d175d89660fe
         ;
