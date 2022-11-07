@@ -35,11 +35,12 @@ class UserController extends Controller
            
             $usuario->identificacion = $request->identificacion;
             $usuario->nombre = $request->nombre;
+            $usuario->apellidos = $request->apellidos;
             $usuario->fecha_nacimiento = $request->fecha_nacimiento;
             $usuario-> email = $request->email;
             $usuario->password = $request->password;
             $usuario->save();
-            return response()->json(['mensaje'=>"QUEDO GUARDADA LA CATEGORIA"]);
+            return response()->json(['mensaje'=>"Usuario  quedo guardado"]);
           }
     }
 
@@ -73,6 +74,7 @@ class UserController extends Controller
                 {
                     $usuario->identificacion = $request->identificacion;
                     $usuario->nombre = $request->nombre;
+                    $usuario->apellidos = $request->apellidos;
                     $usuario->fecha_nacimiento = $request->fecha_nacimiento;
                     $usuario-> email = $request->email;
                     $usuario->password = $request->password;

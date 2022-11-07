@@ -21,6 +21,7 @@ class UserFactory extends Factory
         return [
             'identificacion' => fake()->name(),
             'nombre' => fake()->name(),
+            'apellidos' => fake()->name(20),
             'fecha_nacimiento'=>$this->faker->Date(),
             'email' => fake()->safeEmail(),
             'email_verified_at' => now(),
