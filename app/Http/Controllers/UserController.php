@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Controller;
+//use Illuminate\Http\Controller;
 use Illuminate\Http\Request;
 use App\Models\User;
 use Spatie\Permission\Models\Role;
