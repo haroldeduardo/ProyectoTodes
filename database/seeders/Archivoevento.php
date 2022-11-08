@@ -19,5 +19,8 @@ class Archivoevento extends Seeder
         ([
         'ruta'=>'https://rickandmortyapi.com/api/character/avatar/2.jpeg'
         ]);
+        ([
+            'ruta'=>'https://rickandmortyapi.com/api/character/avatar/361.jpeg'
+            ]);
     }
 }

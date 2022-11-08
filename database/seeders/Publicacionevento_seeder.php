@@ -27,5 +27,16 @@ class Publicacionevento_seeder extends Seeder
             'fecha_caducidad'=>'2022-09-20',
             'tipo'=>'noticia'
         ]);
+        ([
+            'nombre' => 'deporte',
+            'descripcion' => 'charle d saludos para menores de la comunidad',
+            'fecha_y_Hora'=>'2022-09-14 20:22:12',
+            'lugar'=>'parque caldas',
+            'estado'=>'activo',
+            'urlExterna'=>'wow',
+            'responsable'=>'rodrigo',
+            'fecha_caducidad'=>'2022-09-22',
+            'tipo'=>'noticia'
+        ]);
     }
 }
