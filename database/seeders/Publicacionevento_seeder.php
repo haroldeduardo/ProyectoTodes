@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Publicacioneventomodels;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
@@ -15,8 +16,7 @@ class Publicacionevento_seeder extends Seeder
      */
     public function run()
     {
-        DB::table('publicacionevento')->insert 
-        ([
+        Publicacioneventomodels::create([
             'nombre' => 'salud',
             'descripcion' => 'charla de salud para menores de la comunidad',
             'fecha_y_Hora'=>'2022-09-14 20:22:11',
@@ -27,7 +27,7 @@ class Publicacionevento_seeder extends Seeder
             'fecha_caducidad'=>'2022-09-20',
             'tipo'=>'noticia'
         ]);
-        ([
+        Publicacioneventomodels::create([
             'nombre' => 'deporte',
             'descripcion' => 'charle d saludos para menores de la comunidad',
             'fecha_y_Hora'=>'2022-09-14 20:22:12',

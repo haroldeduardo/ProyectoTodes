@@ -10,12 +10,15 @@ class Publicacioneventomodels extends Model
     use HasFactory;
     protected $table = 'publicacionevento';
     protected $fillable = [
-
-        'Nombre',
-        'Descripcion',
-
-
-
+         'fecha_y_Hora',
+         'nombre',
+         'descripcion',
+         'lugar',
+         'estado',// <-- Aquí el enum
+         'urlExterna',
+         'responsable',
+         'fecha_caducidad',
+         'tipo'// <-- Aquí  enum
     ];
 
     public  function archivo(){

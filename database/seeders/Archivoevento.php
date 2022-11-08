@@ -15,11 +15,11 @@ class Archivoevento extends Seeder
      */
     public function run()
     {
-        DB::table('archivoevento')->insert 
-        ([
+        Archivoeventomodels::create([
         'ruta'=>'https://rickandmortyapi.com/api/character/avatar/2.jpeg'
         ]);
-        ([
+
+        Archivoeventomodels::create([
             'ruta'=>'https://rickandmortyapi.com/api/character/avatar/361.jpeg'
             ]);
     }
