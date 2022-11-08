@@ -15,6 +15,9 @@ class Archivoevento extends Seeder
      */
     public function run()
     {
-        Archivoeventomodels::factory(50)->create();
+        DB::table('archivoevento')->insert 
+        ([
+        'ruta'=>'https://rickandmortyapi.com/api/character/avatar/2.jpeg'
+        ]);
     }
 }

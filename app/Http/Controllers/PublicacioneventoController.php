@@ -159,6 +159,8 @@ https://conection-android-camilo.herokuapp.com/ | https://git.heroku.com/conecti
 
         https://roopashree-uthamacholan.medium.com/retrofit-common-errors-solved-d175d89660fe
         ;
+        https://rickandmortyapi.com/api/character/avatar/2.jpeg
+        https://rickandmortyapi.com/api/character/avatar/361.jpeg 
     */
 
 $publicacion_noticia = Publicacioneventomodels::select('publicacionevento.nombre AS nombre_publicacion','publicacionevento.descripcion AS descripcion_publicacion','publicacionevento.lugar',
