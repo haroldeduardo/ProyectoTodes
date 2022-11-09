@@ -174,6 +174,15 @@ class CategoriaController extends Controller
          return $publicacion_por_categoria;
      }
 
+     public function archivopublicacion (){
+
+        $archivo_por_publicacion =archivoeventomodels::select('archivoevento.id_publicacion AS nombre_publicacion')
+        ->join('publicacionevento AS p','p.id','=','archivoevento.id_publicacion')
+        //->join('publicacionevento AS p','p.id','=','dc.id_publicacion')
+        ->get();
+        return $archivo_por_publicacion;
+        }
+
 
     
 }
