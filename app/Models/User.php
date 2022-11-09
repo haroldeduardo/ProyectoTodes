@@ -49,10 +49,11 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
+    /* //Se comenta por que no funciona le login, se debe revisar que otros metodos estan encriptando la contraseña.
     public function setPasswordAttribute($password)
     {
         if(!empty($password)){
             $this->attributes['password']=bcrypt($password);
         }
-    }
+    }*/
 }

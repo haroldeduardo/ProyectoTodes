@@ -11,6 +11,7 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Crypt;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Arr;
+use Spatie\Permission\Traits\HasRoles;
 
 
 class UserController extends Controller
@@ -23,6 +24,7 @@ class UserController extends Controller
         ]);
 
         $user = User::where("email", "=", $request->email)->first();
+        $roles = $user->getRoleNames();
         // revisamos si el id es existente
         if( isset($user->id) ){
             $check=Hash::check($request->password ,$user->password);
@@ -37,6 +39,7 @@ class UserController extends Controller
                     "access_token" => $token,
                     "id" => $user->id,
                     "name" => $user->name,
+                     "rol"=>$roles,
                     "log"=> $check
                 ]);
             }else{
@@ -195,6 +198,7 @@ class UserController extends Controller
                 $usuario->email = $request->email;
                 $usuario->password = $request->password;
                 $usuario->save();
+                $usuario->assignRole('UserComunidad');
                 return response()->json(['mensaje'=>"EL USUARIO SE REGISTRO CORRECTAMENTE"]);
           
             }
@@ -222,6 +226,8 @@ class UserController extends Controller
         
     }
     */
+
+
 }
 
 ?>
