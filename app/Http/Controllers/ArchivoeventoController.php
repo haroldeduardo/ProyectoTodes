@@ -104,4 +104,14 @@ class ArchivoeventoController extends Controller
             'ruta'=>$archivoeventodestroy
              ]);
     }
+
+    public function archivopublicacion (){
+
+        $archivo_por_publicacion =archivoeventomodels::select('.nombre AS nombre_categoria','p.nombre AS nombre_publicacion','p.estado AS estado')
+        ->join('detallecategoria AS dc','dc.id_categoria','=','categoria.id')
+        ->join('publicacionevento AS p','p.id','=','dc.id_publicacion')
+        ->where('p.estado','=','inactivo')
+         ->get();
+        return $publicacion_por_categoria;
+    }
 }
