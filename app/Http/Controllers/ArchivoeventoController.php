@@ -104,4 +104,10 @@ class ArchivoeventoController extends Controller
             'ruta'=>$archivoeventodestroy
              ]);
     }
+    public function ImagenparaPublicacion()
+    {
+        /*SELECT archivoevento.ruta,archivoevento.id_publicacion,pu.estado,pu.tipo FROM archivoevento 
+INNER JOIN publicacionevento AS pu on pu.id = archivoevento.id
+WHERE pu.estado ="activo" AND pu.tipo ="noticia" ;*/
+    }
 }

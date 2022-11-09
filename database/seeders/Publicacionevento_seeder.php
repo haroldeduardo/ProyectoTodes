@@ -18,7 +18,7 @@ class Publicacionevento_seeder extends Seeder
         Publicacioneventomodels::create([
             'nombre' => 'salud',
             'descripcion' => 'charla de salud para menores de la comunidad',
-            'fecha_y_Hora'=>'2022-01-14 20:22:11',
+            'fecha_y_hora'=>'2022-01-14 20:22:11',
             'lugar'=>'popayan',
             'estado'=>'activo',
             'urlExterna'=>'www',
@@ -29,7 +29,7 @@ class Publicacionevento_seeder extends Seeder
         Publicacioneventomodels::create([
             'nombre' => 'deporte',
             'descripcion' => 'charla de saludos para menores de la comunidad',
-            'fecha_y_Hora'=>'2022-02-14 20:22:12',
+            'fecha_y_hora'=>'2022-02-14 20:22:12',
             'lugar'=>'parque caldas',
             'estado'=>'activo',
             'urlExterna'=>'wow',
@@ -40,7 +40,7 @@ class Publicacionevento_seeder extends Seeder
         Publicacioneventomodels::create([
             'nombre' => 'salud',
             'descripcion' => 'charla de buenos habitos para menores de la comunidad',
-            'fecha_y_Hora'=>'2022-03-14 20:20:12',
+            'fecha_y_hora'=>'2022-03-14 20:20:12',
             'lugar'=>'popayan',
             'estado'=>'activo',
             'urlExterna'=>'www',
@@ -51,7 +51,7 @@ class Publicacionevento_seeder extends Seeder
         Publicacioneventomodels::create([
             'nombre' => 'salud',
             'descripcion' => 'vacunacion para mayores de la comunidad',
-            'fecha_y_Hora'=>'2022-05-12 20:12:12',
+            'fecha_y_hora'=>'2022-05-12 20:12:12',
             'lugar'=>'Hospital San Jose',
             'estado'=>'activo',
             'urlExterna'=>'www',
@@ -62,7 +62,7 @@ class Publicacionevento_seeder extends Seeder
         Publicacioneventomodels::create([
             'nombre' => 'baile',
             'descripcion' => 'concurso para menores de la comunidad',
-            'fecha_y_Hora'=>'2022-06-14 20:21:12',
+            'fecha_y_hora'=>'2022-06-14 20:21:12',
             'lugar'=>'juegos olimpicos',
             'estado'=>'activo',
             'urlExterna'=>'wow',
@@ -73,7 +73,7 @@ class Publicacionevento_seeder extends Seeder
         Publicacioneventomodels::create([
             'nombre' => 'carrera atletica',
             'descripcion' => 'vacunacion para mayores de la comunidad',
-            'fecha_y_Hora'=>'2022-07-12 20:22:12',
+            'fecha_y_hora'=>'2022-07-12 20:22:12',
             'lugar'=>'Hospital San Jose',
             'estado'=>'activo',
             'urlExterna'=>'www',
@@ -84,7 +84,7 @@ class Publicacionevento_seeder extends Seeder
         Publicacioneventomodels::create([
             'nombre' => 'natacion',
             'descripcion' => 'concurso para menores de la comunidad',
-            'fecha_y_Hora'=>'2022-08-14 20:21:12',
+            'fecha_y_hora'=>'2022-08-14 20:21:12',
             'lugar'=>'juegos olimpicos',
             'estado'=>'activo',
             'urlExterna'=>'wow',

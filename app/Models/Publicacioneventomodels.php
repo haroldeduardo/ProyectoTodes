@@ -10,7 +10,7 @@ class Publicacioneventomodels extends Model
     use HasFactory;
     protected $table = 'publicacionevento';
     protected $fillable = [
-         'fecha_y_Hora',
+         'fecha_y_hora',
          'nombre',
          'descripcion',
          'lugar',

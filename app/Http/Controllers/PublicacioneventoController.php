@@ -35,7 +35,7 @@ class PublicacioneventoController extends Controller
 
             $publicacion->nombre = $request->nombre;
             $publicacion->descripcion = $request->descripcion;
-            $publicacion-> fecha_y_Hora = $request->fecha_y_Hora;
+            $publicacion-> fecha_y_hora = $request->fecha_y_hora;
             $publicacion->lugar = $request->lugar;
             $publicacion->estado = $request->estado;
             $publicacion->urlExterna = $request->urlExterna;
@@ -80,7 +80,7 @@ class PublicacioneventoController extends Controller
 
                     $publicacion->nombre = $request->nombre;
                     $publicacion->descripcion = $request->descripcion;
-                    $publicacion-> fecha_y_Hora = $request->fecha_y_Hora;
+                    $publicacion-> fecha_y_hora = $request->fecha_y_hora;
                     $publicacion->lugar = $request->lugar;
                     $publicacion->estado = $request->estado;
                     $publicacion->urlExterna = $request->urlExterna;
@@ -134,7 +134,7 @@ class PublicacioneventoController extends Controller
     public function  fechaeventos(){
 
 
-        $publicacion = Publicacioneventomodels::whereDate('fecha_y_Hora','>','1972-06-02')->get();
+        $publicacion = Publicacioneventomodels::whereDate('fecha_y_hora','>','1972-06-02')->get();
         return $publicacion;
     }
 
@@ -164,8 +164,8 @@ https://conection-android-camilo.herokuapp.com/ | https://git.heroku.com/conecti
     https://conection-android-camilo.herokuapp.com
         */
 
-$publicacion_noticia = Publicacioneventomodels::select('publicacionevento.nombre AS nombre_publicacion','publicacionevento.descripcion AS descripcion_publicacion','publicacionevento.lugar',
-'publicacionevento.responsable','publicacionevento.estado','publicacionevento.tipo','ar.ruta AS ruta_archivo')
+$publicacion_noticia = Publicacioneventomodels::select('publicacionevento.nombre AS nombre_publicacion','publicacionevento.descripcion AS descripcion_publicacion',
+'publicacionevento.lugar','publicacionevento.fecha_y_hora','publicacionevento.responsable','publicacionevento.estado','publicacionevento.tipo','ar.ruta AS ruta_archivo')
 ->join('archivoevento AS ar','ar.id','=','publicacionevento.id')
 ->where('publicacionevento.estado','=','activo')
 ->where('publicacionevento.tipo','=','noticia')
@@ -186,7 +186,7 @@ public function publicacionEvento()
 
 
     $publicacion_evento = Publicacioneventomodels::select('publicacionevento.nombre AS nombre_publicacion','publicacionevento.descripcion AS descripcion_publicacion','publicacionevento.lugar',
-    'publicacionevento.responsable','publicacionevento.estado','publicacionevento.tipo','ar.ruta AS ruta_archivo')
+    'publicacionevento.fecha_y_Hora','publicacionevento.responsable','publicacionevento.estado','publicacionevento.tipo','ar.ruta AS ruta_archivo')
     ->join('archivoevento AS ar','ar.id','=','publicacionevento.id')
     ->where('publicacionevento.estado','=','activo')
     ->where('publicacionevento.tipo','=','evento')
