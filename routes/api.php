@@ -87,7 +87,7 @@ Route::resource('users',UserController::class)->names('usuarioCrud');
 Route::get('/user_login',[UserController::class,'login']);
 Route::post('/user_register',[UserController::class,'registrar']);
 Route::get('/consultamuchos',[CategoriaController::class,'Publicaciones_categoria']);
-Route::get('/consultaarchivos',[ArchivoeventoController::class,'archivopublicacion']);
+Route::get('/consultaarchivos',[ArchivoeventoController::class,'archivopublicaciones']);
 
 
 

@@ -33,6 +33,10 @@ class ArchivoeventoController extends Controller
         if(!$validar_archivoevento->fails())//si al validar no hay falla
           {
             $archivoevento= new Archivoeventomodels();
+            $img=null;
+            if($request->$request->hasFile('ruta')){
+                $img=$request->file('ruta')->store('ruta','public');
+            }
             $archivoevento->ruta = $request->ruta;
             $archivoevento->save();
             return response()->json(['mensaje'=>"QUEDO GUARDADO EL ARCHIVO EVENTO"]);
@@ -114,4 +118,13 @@ class ArchivoeventoController extends Controller
          ->get();
         return $publicacion_por_categoria;
     }
+
+    public function archivopublicaciones (){
+
+        $archivo_por_publicacion =archivoeventomodels::select('archivoevento.id_publicacion AS nombre_publicacion')
+        ->join('publicacionevento AS p','p.id','=','archivoevento.id_publicacion')
+        //->join('publicacionevento AS p','p.id','=','dc.id_publicacion')
+        ->get();
+        return $archivo_por_publicacion;
+        }
 }
