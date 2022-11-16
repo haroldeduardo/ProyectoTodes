@@ -173,5 +173,13 @@ class PublicacioneventoController extends Controller
         return $eventos;
     }
     
+    public function noticiasporfechas(){
+
+        //$eventos= Publicacioneventomodels:: where("tipo", "=", "evento")->whereDate('fecha_y_Hora','>=',now()->subDays(70))->select("id","nombre","tipo")
+       // $eventos= Publicacioneventomodels:: where("tipo", "=", "evento")->whereBetween('fecha_y_Hora',[now()->subDays(10000),today()])->select("id","nombre","tipo")
+       $noticias= Publicacioneventomodels:: where("tipo", "=", "noticia")->whereMonth('fecha_y_Hora',now()->month)->whereYear('fecha_y_Hora',now()->year)->select("id","nombre","tipo",'fecha_y_Hora')
+        ->get();
+        return $noticias;
+    }
 
 }

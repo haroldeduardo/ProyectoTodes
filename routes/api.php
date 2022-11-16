@@ -97,6 +97,9 @@ Route::get('/consultaarchivos',[ArchivoeventoController::class,'archivopublicaci
 
 Route::get('/consultadeeventos',[PublicacioneventoController::class,'eventosporfechas']);
  
+//noticias por fecha recientes priemero sacamos todos las noticias
+
+Route::get('/consultadenoticias',[PublicacioneventoController::class,'noticiasporfechas']);
 
 
 ?>
