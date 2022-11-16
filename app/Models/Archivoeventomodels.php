@@ -13,6 +13,8 @@ class Archivoeventomodels extends Model
     protected $fillable = [
         'ruta',
         'id_publicacion',
+       // 'nombre',
+       // 'imagen'
     ];
 
    /* public  function publicacion(){

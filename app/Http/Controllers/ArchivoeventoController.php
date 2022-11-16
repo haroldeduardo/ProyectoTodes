@@ -26,7 +26,7 @@ class ArchivoeventoController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+   public function store(Request $request)
     {
         $validar_archivoevento=Validator::make($request->all(),
         ["ruta"=>"required"]);//required es necesario
@@ -41,6 +41,12 @@ class ArchivoeventoController extends Controller
             $archivoevento->save();
             return response()->json(['mensaje'=>"QUEDO GUARDADO EL ARCHIVO EVENTO"]);
           }
+    }
+
+// subiendo con move
+    public function codeaguardar(Request $request){
+
+        dd($request);
     }
 
     /**
