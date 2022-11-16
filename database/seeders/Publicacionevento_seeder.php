@@ -17,42 +17,42 @@ class Publicacionevento_seeder extends Seeder
     {
         Publicacioneventomodels::create([
             'nombre' => 'salud',
-            'descripcion' => 'charla de salud para menores de la comunidad',
+            'descripcion' => 'Charla de salud para menores de la comunidad LGTBIQ',
             'fecha_y_hora'=>'2022-01-14 20:22:11',
-            'lugar'=>'popayan',
+            'lugar'=>'Popayan',
             'estado'=>'activo',
             'urlExterna'=>'www',
-            'responsable'=>'alonso',
+            'responsable'=>'Alonso Villa',
             'fecha_caducidad'=>'2023-08-20',
             'tipo'=>'noticia'
         ]);
         Publicacioneventomodels::create([
             'nombre' => 'deporte',
-            'descripcion' => 'charla de saludos para menores de la comunidad',
+            'descripcion' => 'Campeonato relampago para los mayores de edad de la comunidad LGTBIQ',
             'fecha_y_hora'=>'2022-02-14 20:22:12',
-            'lugar'=>'parque caldas',
+            'lugar'=>'La villa',
             'estado'=>'activo',
             'urlExterna'=>'wow',
-            'responsable'=>'rodrigo',
+            'responsable'=>'Secretaria de Deporte y Cultura',
             'fecha_caducidad'=>'2023-03-22',
             'tipo'=>'noticia'
         ]);
         Publicacioneventomodels::create([
-            'nombre' => 'salud',
-            'descripcion' => 'charla de buenos habitos para menores de la comunidad',
+            'nombre' => 'Baile deportivo',
+            'descripcion' => 'Ven y disfruta de la integracion',
             'fecha_y_hora'=>'2022-03-14 20:20:12',
-            'lugar'=>'popayan',
+            'lugar'=>'Puente del Humilladero',
             'estado'=>'activo',
             'urlExterna'=>'www',
-            'responsable'=>'alonso',
+            'responsable'=>'Secreatia de LGTBIQ',
             'fecha_caducidad'=>'2023-07-17',
             'tipo'=>'noticia'
         ]);
         Publicacioneventomodels::create([
-            'nombre' => 'salud',
-            'descripcion' => 'vacunacion para mayores de la comunidad',
+            'nombre' => 'Gastronomia',
+            'descripcion' => 'Gran encuentro de los mejores chefs de la ciudad Blanca',
             'fecha_y_hora'=>'2022-05-12 20:12:12',
-            'lugar'=>'Hospital San Jose',
+            'lugar'=>'Parque caldas',
             'estado'=>'activo',
             'urlExterna'=>'www',
             'responsable'=>'Alcaldia',
@@ -60,10 +60,10 @@ class Publicacionevento_seeder extends Seeder
             'tipo'=>'evento'
         ]);
         Publicacioneventomodels::create([
-            'nombre' => 'baile',
-            'descripcion' => 'concurso para menores de la comunidad',
+            'nombre' => 'Desfile de bailarines',
+            'descripcion' => 'concurso de desfile para la comunidad',
             'fecha_y_hora'=>'2022-06-14 20:21:12',
-            'lugar'=>'juegos olimpicos',
+            'lugar'=>'Saldra desde Campanario',
             'estado'=>'activo',
             'urlExterna'=>'wow',
             'responsable'=>'Alcaldia de Popayan',
@@ -71,10 +71,10 @@ class Publicacionevento_seeder extends Seeder
             'tipo'=>'evento'
         ]);
         Publicacioneventomodels::create([
-            'nombre' => 'carrera atletica',
-            'descripcion' => 'vacunacion para mayores de la comunidad',
+            'nombre' => 'Carrera Atletica',
+            'descripcion' => 'Ven y participa de este gran concurso',
             'fecha_y_hora'=>'2022-07-12 20:22:12',
-            'lugar'=>'Hospital San Jose',
+            'lugar'=>'salida desde el Hospital San Jose',
             'estado'=>'activo',
             'urlExterna'=>'www',
             'responsable'=>'Alcaldia',
