@@ -24,9 +24,11 @@ class UserController extends Controller
         ]);
 
         $user = User::where("email", "=", $request->email)->first();
-        $roles = $user->getRoleNames();
+        
+        
         // revisamos si el id es existente
         if( isset($user->id) ){
+            $roles = $user->getRoleNames();
             $check=Hash::check($request->password ,$user->password);
             // Comprobamos la contraseña ---
             if(Hash::check($request->password ,$user->password)){
@@ -46,7 +48,6 @@ class UserController extends Controller
                 return response()->json([
                     "status" => 0,
                     "msg" => "usuario incorrecto logeado",
-                    
                     
                 ]);
             }
