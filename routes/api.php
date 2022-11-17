@@ -7,7 +7,7 @@ use App\Http\Controllers\ArchivoeventoController ;
 use App\Http\Controllers\ComentariosController ;
 use App\Http\Controllers\CategoriaController ;
 use App\Http\Controllers\UserController ;
-
+use App\Http\Controllers\DetallepublicacioncategoriaController ;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Route;
 
@@ -102,5 +102,7 @@ Route::get('/consultadeeventos',[PublicacioneventoController::class,'eventosporf
 Route::get('/consultadenoticias',[PublicacioneventoController::class,'noticiasporfechas']);
 
 
+Route::get('/detalle',[DetallepublicacioncategoriaController::class,'index']);
+Route::get('/detalle_categoria',[DetallepublicacioncategoriaController::class,'detallle_categoria']);
 ?>
 
