@@ -4,9 +4,10 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
-use Illuminate\Support\Facades\DB;
-use App\Models\Comentarios;
-class Comentario_seeder extends Seeder
+use App\Models\Categoriamodels;
+
+
+class categoria_seeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -15,6 +16,6 @@ class Comentario_seeder extends Seeder
      */
     public function run()
     {
-     //   Comentarios::factory(50)->create();
+        Categoriamodels::factory(50)->create();
     }
 }

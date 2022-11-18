@@ -31,8 +31,6 @@ class PublicacioneventoController extends Controller
         if(!$validar_publicacion->fails())//si al validar no hay falla
           {
             $publicacion= new Publicacioneventomodels();
-
-
             $publicacion->nombre = $request->nombre;
             $publicacion->descripcion = $request->descripcion;
             $publicacion-> fecha_y_hora = $request->fecha_y_hora;
@@ -42,7 +40,6 @@ class PublicacioneventoController extends Controller
             $publicacion->responsable = $request->responsable;
             $publicacion->fecha_caducidad = $request->fecha_caducidad;
             $publicacion->tipo = $request->tipo;
-
             $publicacion->save();
             return response()->json(['mensaje'=>"QUEDO GUARDADA LA PUBLICACION"]);
           }
@@ -76,22 +73,20 @@ class PublicacioneventoController extends Controller
             $publicacion = Publicacioneventomodels::find($id);
                 if(isset($publicacion))
                 {
-
+                
 
                     $publicacion->nombre = $request->nombre;
                     $publicacion->descripcion = $request->descripcion;
-                    $publicacion-> fecha_y_hora = $request->fecha_y_hora;
+                    $publicacion-> fecha_y_Hora = $request->fecha_y_Hora;
                     $publicacion->lugar = $request->lugar;
                     $publicacion->estado = $request->estado;
                     $publicacion->urlExterna = $request->urlExterna;
                     $publicacion->responsable = $request->responsable;
                     $publicacion->fecha_caducidad = $request->fecha_caducidad;
                     $publicacion->tipo = $request->tipo;
-
                     $publicacion->save();
-
-
-
+                    
+                    
                     return response()->json(['mensaje'=>"PUBLICACIO ACTUALIZADA"]);
                 }
                  else{
@@ -132,7 +127,6 @@ class PublicacioneventoController extends Controller
     //CONSULTA EN DONDE  SE VE LA PUBLICACIONES y eventos mayors  a la fecha
 
     public function  fechaeventos(){
-
 
         $publicacion = Publicacioneventomodels::whereDate('fecha_y_hora','>','1972-06-02')->get();
         return $publicacion;
@@ -194,5 +188,4 @@ public function publicacionEvento()
     return $publicacion_evento;
 }
 
-    
 }

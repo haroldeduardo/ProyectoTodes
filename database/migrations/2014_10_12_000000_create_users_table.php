@@ -17,7 +17,8 @@ return new class extends Migration
             $table->id();
             $table->string('identificacion')->unique();
             $table->string('nombre');
-            $table->string('apellido');
+            $table->string('apellidos');
+            $table->string('genero');
             $table->date('fecha_nacimiento');
             $table->string('email')->unique();
             $table->string('password');

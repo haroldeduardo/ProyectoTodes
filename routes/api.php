@@ -1,11 +1,14 @@
 <?php
 
 use Illuminate\Http\Request;
-use App\Http\Controllers\Archivo_controller;
 use App\Http\Controllers\CategoriaController;
 use App\Http\Controllers\PublicacioneventoController;
+use App\Http\Controllers\ArchivoeventoController;
+use App\Http\Controllers\ComentariosController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Route;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -21,7 +24,22 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
-Route::get('users/',[Archivo_controller::class,'index']);
+Route::get('/publicacion',[PublicacioneventoController::class,'index']);
+Route::post('/publicacion',[PublicacioneventoController::class,'store']);
+Route::get('/publicacion/{id}',[PublicacioneventoController::class,'show']);
+Route::put('/publicacion/{id}',[PublicacioneventoController::class,'update']);
+Route::delete('/publicacion/{id}',[PublicacioneventoController::class,'destroy']);
+
+// CONSULTAS
+
+Route::get('/publicacionconsul',[PublicacioneventoController::class,'fechaeventos']);
+Route::get('/publicacionconsul2',[PublicacioneventoController::class,'ordenar']);
+
+
+
+//Route::get('/archivo',[ArchivoeventoController::class,'index']);
+//Route::get('/comentarios',[ComentariosController::class,'index']);
+//Route::get('/categoria',[CategoriaController::class,'index']);
 //get
 //post
 //delete
@@ -74,6 +92,7 @@ Route::get('/estado_publi',[CategoriaController::class,'Estadoactiva_publicacion
 
 Route::get('/estadoinac_publi',[CategoriaController::class,'Estadoinactiva_publicacion']);
 
+
 //----------------------------------------------------------------------------
 Route::get('/archivoevento',[ArchivoeventoController::class,'index']);
 Route::get('/archivoevento/{id}',[ArchivoeventoController::class,'show']);
@@ -94,9 +113,13 @@ Route::get('/usuario/{id}',[UserController::class,'show']);
 Route::delete('/usuario/{id}',[UserController::class,'destroy']);
 Route::put('/usuario/{id}',[UserController::class,'update']);
 
+
 //--------------------------------------------------------------------------------
 Route::get('/user_login',[UserController::class,'login']);
 Route::post('/user_register',[UserController::class,'registrar']);
+
+
+?>
 
 
 ?>

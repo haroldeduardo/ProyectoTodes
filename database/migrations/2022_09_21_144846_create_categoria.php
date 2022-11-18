@@ -13,15 +13,10 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('evento', function (Blueprint $table) {
+        Schema::create('categoria', function (Blueprint $table) {
             $table->id();
-            $table->string('nombre_evento');
-            $table->string('fecha_evento');
-            $table->string('hora_evento');
-            $table->string('lugar_evento');
-            $table->string('descripcion_evento');
-            $table->string('responsable_evento');
-          //$table->string('file_evento');
+            $table->string('nombre');
+            $table->string('descripcion');
             $table->timestamps();
         });
     }
@@ -33,6 +28,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('evento');
+        Schema::dropIfExists('categoria');
     }
 };

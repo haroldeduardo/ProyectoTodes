@@ -19,6 +19,7 @@ class Publicacioneventomodels extends Model
          'responsable',
          'fecha_caducidad',
          'tipo'// <-- Aquí  enum
+   
     ];
 
     public  function archivo(){
