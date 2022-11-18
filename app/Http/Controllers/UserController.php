@@ -99,7 +99,7 @@ class UserController extends Controller
             $usuario->genero = $request->genero;
             $usuario->fecha_nacimiento = $request->fecha_nacimiento;
             $usuario-> email = $request->email;
-            $usuario->password = $request->password;
+            $usuario->password = Hash::make($request->password); 
             $usuario->save();
             return response()->json(['mensaje'=>"Usuario  quedo guardado"]);
           }
