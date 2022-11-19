@@ -27,7 +27,7 @@ class DetallepublicacioncategoriaController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        
     }
 
     /**
@@ -38,7 +38,16 @@ class DetallepublicacioncategoriaController extends Controller
      */
     public function show($id)
     {
-        //
+        
+        
+
+        $detalle = Detallecategoriaomodels::select('detallecategoria.id AS id_detalle','detallecategoria.prioridad AS Prioridad_detallle','p.nombre AS nombre_publicacion','c.nombre as Nombresdecategorias','c.descripcion as Descripciodecategorias')
+        ->join('categoria AS c','c.id','=','detallecategoria.id_categoria')
+        ->join('publicacionevento AS p','p.id','=','detallecategoria.id_publicacion')
+        ->Where('detallecategoria.id',$id)
+        ->get();
+        return $detalle;
+
     }
 
     /**
@@ -67,7 +76,7 @@ class DetallepublicacioncategoriaController extends Controller
     public function detallle_categoria()
     {
        
-        $detalle = Detallecategoriaomodels::select('detallecategoria.prioridad AS Prioridad_detallle','p.nombre AS nombre_publicacion','c.nombre as Nombresdecategorias')
+        $detalle = Detallecategoriaomodels::select('detallecategoria.id AS id_detalle','detallecategoria.prioridad AS Prioridad_detallle','p.nombre AS nombre_publicacion','c.nombre as Nombresdecategorias','c.descripcion as Descripciodecategorias')
         ->join('categoria AS c','c.id','=','detallecategoria.id_categoria')
         ->join('publicacionevento AS p','p.id','=','detallecategoria.id_publicacion')
          ->get();
