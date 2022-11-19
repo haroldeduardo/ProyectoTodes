@@ -122,4 +122,4 @@ Route::post('/user_register',[UserController::class,'registrar']);
 ?>
 
 
-?>
+
