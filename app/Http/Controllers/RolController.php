@@ -79,7 +79,7 @@ class RolController extends Controller
     {
       $role = Role::find($id);
     $permission = Permission::get();
-    $rolePermission = DB::table('role_has_permissions')->where('role_has_permissions.role_id',id)
+    $rolePermission = DB::table('role_has_permissions')->where('role_has_permissions.role_id')
     ->pluck('role_has_permissions.role_id','role_has_permissions.role_id')
     ->all();
 

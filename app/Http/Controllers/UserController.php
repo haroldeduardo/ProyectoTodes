@@ -24,9 +24,11 @@ class UserController extends Controller
         ]);
 
         $user = User::where("email", "=", $request->email)->first();
-        $roles = $user->getRoleNames();
+        
+        
         // revisamos si el id es existente
         if( isset($user->id) ){
+            $roles = $user->getRoleNames();
             $check=Hash::check($request->password ,$user->password);
             // Comprobamos la contraseña ---
             if(Hash::check($request->password ,$user->password)){
@@ -46,7 +48,6 @@ class UserController extends Controller
                 return response()->json([
                     "status" => 0,
                     "msg" => "usuario incorrecto logeado",
-                    
                     
                 ]);
             }
@@ -99,6 +100,7 @@ class UserController extends Controller
             $usuario->fecha_nacimiento = $request->fecha_nacimiento;
             $usuario-> email = $request->email;
             $usuario->password = Hash::make($request->password);
+
             $usuario->save();
             return response()->json(['mensaje'=>"Usuario  quedo guardado"]);
           }
@@ -197,10 +199,10 @@ class UserController extends Controller
                 $usuario->fecha_nacimiento = $request->fecha_nacimiento;
                 $usuario->email = $request->email;
                 $usuario->password = Hash::make($request->password);
+
                 $usuario->save();
                 $usuario->assignRole('UserComunidad');
                 return response()->json(['mensaje'=>"EL USUARIO SE REGISTRO CORRECTAMENTE"]);
-          
             }
             
            // return response()->json(['mensaje'=>"Usuario registrado correctamente"]);

@@ -26,17 +26,27 @@ class ArchivoeventoController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+   public function store(Request $request)
     {
         $validar_archivoevento=Validator::make($request->all(),
         ["ruta"=>"required"]);//required es necesario
         if(!$validar_archivoevento->fails())//si al validar no hay falla
           {
             $archivoevento= new Archivoeventomodels();
+            $img=null;
+            if($request->$request->hasFile('ruta')){
+                $img=$request->file('ruta')->store('ruta','public');
+            }
             $archivoevento->ruta = $request->ruta;
             $archivoevento->save();
             return response()->json(['mensaje'=>"QUEDO GUARDADO EL ARCHIVO EVENTO"]);
           }
+    }
+
+// subiendo con move
+    public function codeaguardar(Request $request){
+
+        dd($request);
     }
 
     /**
@@ -104,4 +114,23 @@ class ArchivoeventoController extends Controller
             'ruta'=>$archivoeventodestroy
              ]);
     }
+
+    public function archivopublicacion (){
+
+        $archivo_por_publicacion =archivoeventomodels::select('.nombre AS nombre_categoria','p.nombre AS nombre_publicacion','p.estado AS estado')
+        ->join('detallecategoria AS dc','dc.id_categoria','=','categoria.id')
+        ->join('publicacionevento AS p','p.id','=','dc.id_publicacion')
+        ->where('p.estado','=','inactivo')
+         ->get();
+        return $publicacion_por_categoria;
+    }
+
+    public function archivopublicaciones (){
+
+        $archivo_por_publicacion =archivoeventomodels::select('archivoevento.id_publicacion AS nombre_publicacion')
+        ->join('publicacionevento AS p','p.id','=','archivoevento.id_publicacion')
+        //->join('publicacionevento AS p','p.id','=','dc.id_publicacion')
+        ->get();
+        return $archivo_por_publicacion;
+        }
 }

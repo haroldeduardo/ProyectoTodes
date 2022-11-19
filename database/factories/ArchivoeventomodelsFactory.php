@@ -24,8 +24,10 @@ class ArchivoeventomodelsFactory extends Factory
     {
         return [
             
-            'ruta'=>$this->faker->url (),
-            'id_publicacion'=> $this->faker->numberBetween(1,20),
+           'ruta'=>$this->faker->url (),
+            'id_publicacion'=> $this->faker->numberBetween(1,20)
+
+            
             
         ];
     }

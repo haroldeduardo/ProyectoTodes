@@ -14,12 +14,16 @@ return new class extends Migration
     public function up()
     {
         Schema::create('archivoevento', function (Blueprint $table) {
-            $table->id();   
+           $table->id();   
           
             $table->string('ruta');
             $table->foreignId('id_publicacion')
             ->constrained('publicacionevento')
             ->cascadeOnDelete()->cascadeOnUpdate();
+
+           // $table->string('nombre')->unique;
+           // $table->string('imagen')->nullable ;
+
         });
     }
 

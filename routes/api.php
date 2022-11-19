@@ -7,7 +7,7 @@ use App\Http\Controllers\ArchivoeventoController ;
 use App\Http\Controllers\ComentariosController ;
 use App\Http\Controllers\CategoriaController ;
 use App\Http\Controllers\UserController ;
-
+use App\Http\Controllers\DetallepublicacioncategoriaController ;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Route;
 
@@ -61,6 +61,10 @@ Route::post('/archivoevento',[ArchivoeventoController::class,'store']);
 Route::put('/archivoevento/{id}',[ArchivoeventoController::class,'update']);
 Route::delete('/archivoevento/{id}',[ArchivoeventoController::class,'destroy']);
 
+//llamar  al formulario
+Route::get('/codea',[ArchivoeventoController::class,'index']);
+//guardar
+Route::post('/codeaguardar',[ArchivoeventoController::class,'codeaguardar']);
 Route::get('/comentarios',[ComentariosController::class,'index']);
 Route::get('/comentarios/{id}',[ComentariosController::class,'show']);
 Route::post('/comentarios',[ComentariosController::class,'store']);
@@ -87,8 +91,18 @@ Route::resource('users',UserController::class)->names('usuarioCrud');
 Route::get('/user_login',[UserController::class,'login']);
 Route::post('/user_register',[UserController::class,'registrar']);
 Route::get('/consultamuchos',[CategoriaController::class,'Publicaciones_categoria']);
+Route::get('/consultaarchivos',[ArchivoeventoController::class,'archivopublicaciones']);
+ 
+///eventos por fecha recientes priemero sacamos todos los eventos
+
+Route::get('/consultadeeventos',[PublicacioneventoController::class,'eventosporfechas']);
+ 
+//noticias por fecha recientes priemero sacamos todos las noticias
+
+Route::get('/consultadenoticias',[PublicacioneventoController::class,'noticiasporfechas']);
 
 
-
+Route::get('/detalle',[DetallepublicacioncategoriaController::class,'index']);
+Route::get('/detalle_categoria',[DetallepublicacioncategoriaController::class,'detallle_categoria']);
 ?>
 
