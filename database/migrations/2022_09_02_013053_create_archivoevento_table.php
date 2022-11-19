@@ -21,6 +21,7 @@ return new class extends Migration
             ->constrained('publicacionevento')
             ->cascadeOnUpdate()
             ->nullOnDelete();
+            $table->timestamps();
           // $table->timestamps();
         });
     }

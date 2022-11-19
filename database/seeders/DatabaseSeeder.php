@@ -23,11 +23,11 @@ class DatabaseSeeder extends Seeder
        // $this->call(Evento_seeder::class);
    //    $this->call(UserTableSeeder_seeder::class);
      //  $this->call(Comentario_seeder::class);
-       $this->call(eventos_seeder::class);
        $this->call(categoria_seeder::class);
        $this->call(UserTableSeeder::class);
+       $this->call(Archivoevento::class);
        $this->call(publicacionevento_seeder::class);       
   //     $this->call(comentarios_seeder::class);
-       $this->call(archivoevento::class);
+      
     }
 }
