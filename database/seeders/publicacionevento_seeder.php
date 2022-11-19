@@ -6,7 +6,7 @@ use App\Models\Publicacioneventomodels;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
-class publicacionevento_seeder extends Seeder
+class Publicacionevento_seeder extends Seeder
 {
     /**
      * Run the database seeds.

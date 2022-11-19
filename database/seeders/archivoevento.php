@@ -6,7 +6,7 @@ use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 use App\Models\Archivoeventomodels ;
-class archivoevento extends Seeder
+class Archivoevento extends Seeder
 {
     /**
      * Run the database seeds.
