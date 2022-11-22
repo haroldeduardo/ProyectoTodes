@@ -32,6 +32,7 @@ class ArchivoeventoController extends Controller
         ["ruta"=>"required"]);//required es necesario
         if(!$validar_archivoevento->fails())//si al validar no hay falla
           {
+
            $imagen=$request->hasfile('ruta');
            if($imagen){
             $archivoevento= new Archivoeventomodels();
@@ -41,6 +42,7 @@ class ArchivoeventoController extends Controller
             return response()->json(['mensaje'=>"QUEDO GUARDADO EL ARCHIVO EVENTO"]);
            }
             
+
           }
     }
 

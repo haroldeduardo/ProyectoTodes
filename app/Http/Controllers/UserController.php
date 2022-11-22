@@ -141,7 +141,7 @@ class UserController extends Controller
                     $usuario->apellidos = $request->apellidos;
                     $usuario->fecha_nacimiento = $request->fecha_nacimiento;
                     $usuario-> email = $request->email;
-                    $usuario->password = $request->password;
+                    $usuario->password = Hash::make($request->password);
                     
                     $usuario->save();
                     return response()->json(['mensaje'=>"USUARIO ACTUALIZADO"]);
@@ -197,7 +197,9 @@ class UserController extends Controller
                 $usuario->genero=$request->genero;
                 $usuario->fecha_nacimiento = $request->fecha_nacimiento;
                 $usuario->email = $request->email;
-                $usuario->password = Hash::make($request->password); 
+
+                $usuario->password = Hash::make($request->password);
+
                 $usuario->save();
                 $usuario->assignRole('UserComunidad');
                 return response()->json(['mensaje'=>"EL USUARIO SE REGISTRO CORRECTAMENTE"]);
