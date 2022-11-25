@@ -17,6 +17,8 @@ return new class extends Migration
             $table->id();
             $table->string ('contenido');
             $table->enum("clasificasion", ["Me interesa", "No me interesa"]);// <-- Aquí el enum
+           
+            //$table->enum("estado", ["activo", "inactivo"]);// <-- Aquí el enum
             $table->date ('fecha_comentario');
 
            

@@ -24,12 +24,19 @@ class detallecategoria_seeder extends Seeder
             'id_categoria' => '1',
 
 
-            'prioridad' => 'Principal',
-            'id_publicacion' => '20',
-            'id_categoria' => '20',
+            
         ]);
 
 
+        DB::table('detallecategoria')->insert 
+        ([
+            'prioridad' => 'Principal',
+            'id_publicacion' => '2',
+            'id_categoria' => '2',
+
+
+            
+        ]);
 
         //Detallecategoriaomodels ::factory(50)->create();
         

@@ -14,7 +14,7 @@ class eventos_seeder extends Seeder
      * @return void
      */
     public function run()
-    {
+    {/*
         DB::table('publicacionevento')->insert 
         ([
             'nombre' => 'salud',
@@ -27,5 +27,5 @@ class eventos_seeder extends Seeder
             'fecha_caducidad'=>'2022-09-20',
             'tipo'=>'Evento'
         ]);
-    }
+    */ }
 }

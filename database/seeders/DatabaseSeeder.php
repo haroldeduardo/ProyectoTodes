@@ -18,14 +18,14 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
 
-       $this->call(eventos_seeder::class);
+      // $this->call(eventos_seeder::class);
        $this->call(categoria_seeder::class);
        $this->call(Publicacionevento_seeder::class);       
-       $this->call(archivoevento::class);
+       $this->call(Archivoevento::class);
        $this->call(detallecategoria_seeder::class);
        $this->call(RoleSeeder::class);
        $this->call(UserTableSeeder::class);
-       $this->call(comentarios_seeder::class);
+       $this->call(Comentario_seeder::class);
 
     }
 }
