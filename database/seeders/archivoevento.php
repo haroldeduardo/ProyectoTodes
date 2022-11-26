@@ -15,6 +15,48 @@ class Archivoevento extends Seeder
      */
     public function run()
     {
-       // Archivoeventomodels::factory(50)->create();
+      
+        DB::table('archivoevento')->insert 
+        ([
+            'ruta' => 'img',
+           'id_publicacion'=>'1'
+
+
+          
+        ]);
+
+         
+        DB::table('archivoevento')->insert 
+        ([
+            'ruta' => 'img',
+           'id_publicacion'=>'2'
+
+
+          
+        ]);
+
+
+        DB::table('archivoevento')->insert 
+        ([
+            'ruta' => 'img',
+           'id_publicacion'=>'3'
+
+
+          
+        ]);
+
+
+        DB::table('archivoevento')->insert 
+        ([
+            'ruta' => 'img',
+           'id_publicacion'=>'4'
+
+
+          
+        ]);
+
+
+
+        //Archivoeventomodels::factory(50)->create();
     }
 }
