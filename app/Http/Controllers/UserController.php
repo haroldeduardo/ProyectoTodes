@@ -67,7 +67,6 @@ class UserController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-
     {
 
         $usuariosConRol = User::has('roles')->paginate(50);
@@ -143,7 +142,7 @@ class UserController extends Controller
                     $usuario->apellidos = $request->apellidos;
                     $usuario->fecha_nacimiento = $request->fecha_nacimiento;
                     $usuario-> email = $request->email;
-                    $usuario->password = $request->password;
+                    $usuario->password = Hash::make($request->password);
                     
                     $usuario->save();
                     return response()->json(['mensaje'=>"USUARIO ACTUALIZADO"]);

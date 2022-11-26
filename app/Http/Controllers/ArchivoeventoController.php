@@ -33,17 +33,16 @@ class ArchivoeventoController extends Controller
         if(!$validar_archivoevento->fails())//si al validar no hay falla
           {
 
-            $imagen=$request->hasFile('ruta');
-            if($imagen){
+           $imagen=$request->hasfile('ruta');
+           if($imagen){
             $archivoevento= new Archivoeventomodels();
-            //$img=null;
-            $img=$request->File('ruta')->store('imagenes','public');
+            $img=$request->file('ruta')->store('imagenes','public');
             $archivoevento->ruta = $img;
             $archivoevento->save();
             return response()->json(['mensaje'=>"QUEDO GUARDADO EL ARCHIVO EVENTO"]);
-            }
-           
+           }
             
+
           }
     }
 
