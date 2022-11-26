@@ -46,7 +46,7 @@ class UserTableSeeder extends Seeder
             'email'=>'joel@gmail.com',
             'password'=> Hash::make('12345mmlklkm')])->assignRole('UserComunidad');
 
-        User::factory()->count(50)->create();
+       // User::factory()->count(50)->create();
         
     }
 }

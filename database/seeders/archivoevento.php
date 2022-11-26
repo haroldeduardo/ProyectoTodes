@@ -15,6 +15,6 @@ class Archivoevento extends Seeder
      */
     public function run()
     {
-        Archivoeventomodels::factory(50)->create();
+       // Archivoeventomodels::factory(50)->create();
     }
 }

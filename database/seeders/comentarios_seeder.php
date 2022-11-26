@@ -15,6 +15,21 @@ class comentarios_seeder extends Seeder
      */
     public function run()
     {
-        Comentarios::factory(50)->create();
+        DB::table('comentarios')->insert 
+        ([
+            'contenido' => 'es  importante  el  evento de  salud',
+            'clasificasion'=>'Me interesa',
+            'fecha_comentario'=>'2022-11-25',
+            'id_publicacion'=>'1',
+            'id_usuario'=>'1'
+
+
+          
+        ]);
+
+
+
+
+        //Comentarios::factory(50)->create();
     }
 }
