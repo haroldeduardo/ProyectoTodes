@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Detallecategoriaomodels extends Model
 {
     use HasFactory;
-
+    public $timestamps = FALSE;
     protected $table = 'detallecategoria';
     protected $fillable = [
         'prioridad',

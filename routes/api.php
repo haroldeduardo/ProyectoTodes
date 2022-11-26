@@ -105,5 +105,6 @@ Route::get('/consultadenoticias',[PublicacioneventoController::class,'noticiaspo
 Route::get('/detalle',[DetallepublicacioncategoriaController::class,'index']);
 Route::get('/detalle_categoria',[DetallepublicacioncategoriaController::class,'detallle_categoria']);
 Route::get('/detalle_categoria/{id}',[DetallepublicacioncategoriaController::class,'show']);
+Route::post('/detalle_categoria',[DetallepublicacioncategoriaController::class,'store']);
 ?>
 

@@ -27,7 +27,18 @@ class DetallepublicacioncategoriaController extends Controller
      */
     public function store(Request $request)
     {
-        
+        $validar_detallecategoria=Validator::make($request->all(),
+        ["prioridad"=>"required"]);//required es necesario
+        if(!$validar_detallecategoria->fails())//si al validar no hay falla
+          {
+            $detallecategoria = new Detallecategoriaomodels();
+            $detallecategoria->prioridad = $request->prioridad;
+            $detallecategoria->id_publicacion = $request->id_publicacion;
+            $detallecategoria->id_categoria = $request->id_categoria;
+          
+            $detallecategoria->save();
+            return response()->json(['mensaje'=>"QUEDO GUARDADA  detalle cataegoria"]);
+          }
     }
 
     /**

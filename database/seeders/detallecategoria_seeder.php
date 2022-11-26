@@ -16,7 +16,7 @@ class detallecategoria_seeder extends Seeder
      */
     public function run()
     {
-       
+       /*
         DB::table('detallecategoria')->insert 
         ([
             'prioridad' => 'Principal',
@@ -30,7 +30,7 @@ class detallecategoria_seeder extends Seeder
         ]);
 
 
-
+*/
         //Detallecategoriaomodels ::factory(50)->create();
         
     
