@@ -227,7 +227,18 @@ class UserController extends Controller
         
     }
     */
-
+    /**
+     *funcion que esta mostrando los roles por el id  del usuario
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function showUsersRoles($id)
+    {
+        $usuario=User::Where('id','=',$id)->first();
+        
+        return $usuario->getRoleNames();;
+    }
 
 }
 
