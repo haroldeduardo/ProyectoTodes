@@ -196,4 +196,6 @@ public function eventos(){
         return $noticias;
     }
 
+    
+
 }

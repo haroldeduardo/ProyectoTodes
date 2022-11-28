@@ -15,7 +15,7 @@ class Archivoevento extends Seeder
      */
     public function run()
     {
-      
+      /*
         DB::table('archivoevento')->insert 
         ([
             'ruta' => 'img',
@@ -49,5 +49,5 @@ class Archivoevento extends Seeder
 
 
         //Archivoeventomodels::factory(50)->create();
-    }
+    */ }
 }

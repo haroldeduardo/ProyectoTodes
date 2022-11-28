@@ -28,11 +28,11 @@ class DetallepublicacioncategoriaController extends Controller
     public function store(Request $request)
     {
         $validar_detallecategoria=Validator::make($request->all(),
-        ["prioridad"=>"required"]);//required es necesario
+        ["id_publicacion"=>"required","id_categoria"=>"required"]);//required es necesario
         if(!$validar_detallecategoria->fails())//si al validar no hay falla
           {
             $detallecategoria = new Detallecategoriaomodels();
-            $detallecategoria->prioridad = $request->prioridad;
+           // $detallecategoria->prioridad = $request->prioridad;
             $detallecategoria->id_publicacion = $request->id_publicacion;
             $detallecategoria->id_categoria = $request->id_categoria;
           
@@ -55,7 +55,7 @@ class DetallepublicacioncategoriaController extends Controller
         $detalle = Detallecategoriaomodels::select('detallecategoria.id AS id_detalle','detallecategoria.prioridad AS Prioridad_detallle','p.nombre AS nombre_publicacion','c.nombre as Nombresdecategorias','c.descripcion as Descripciodecategorias')
         ->join('categoria AS c','c.id','=','detallecategoria.id_categoria')
         ->join('publicacionevento AS p','p.id','=','detallecategoria.id_publicacion')
-        ->Where('detallecategoria.id',$id)
+        ->Where('p.id',$id)
         ->get();
         return $detalle;
 

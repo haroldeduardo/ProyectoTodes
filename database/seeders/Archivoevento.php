@@ -46,14 +46,6 @@ class Archivoevento extends Seeder
         ]);
 
 
-        DB::table('archivoevento')->insert 
-        ([
-            'ruta' => 'img',
-           'id_publicacion'=>'4'
-
-
-          
-        ]);
 
 
 
