@@ -69,8 +69,9 @@ class UserController extends Controller
     public function index()
     {
 
-        $usuariosConRol = User::has('roles')->paginate(50);
+        $usuariosConRol = User::has('roles')->get();
         //$usuariosConRol=User::all();
+        //$usuario->getRoleNames();
         return $usuariosConRol;
     }
 
