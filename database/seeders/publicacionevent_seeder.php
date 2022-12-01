@@ -5,7 +5,8 @@ namespace Database\Seeders;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use App\Models\Publicacioneventomodels;
-class publicacionevento_seeder extends Seeder
+
+class publicacionevent_seeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -14,7 +15,6 @@ class publicacionevento_seeder extends Seeder
      */
     public function run()
     {
-        
         Publicacioneventomodels::create([
             'nombre' => 'salud',
             'descripcion' => 'Charla de salud para menores de la comunidad LGTBIQ',
