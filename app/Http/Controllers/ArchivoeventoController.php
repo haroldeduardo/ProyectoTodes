@@ -29,20 +29,19 @@ class ArchivoeventoController extends Controller
    public function store(Request $request)
     {
         $validar_archivoevento=Validator::make($request->all(),
-        ["ruta"=>"required"]);//required es necesario
+        ["nombre"=>"required"]);//required es necesario
         if(!$validar_archivoevento->fails())//si al validar no hay falla
           {
 
-           $imagen=$request->hasfile('ruta');
+            $img="";
+           $imagen=$request->hasfile('img');
            if($imagen){
-            $archivoevento= new Archivoeventomodels();
-            $img=$request->file('ruta')->store('imagenes','public');
-            $archivoevento->ruta = $img;
-            $archivoevento->save();
-            return response()->json(['mensaje'=>"QUEDO GUARDADO EL ARCHIVO EVENTO"]);
-           }
+            $img=$request->file('img')->store('imagenes','public'); 
+                      }
             
-
+                      $archivo= new Archivoeventomodels();
+                      $archivo->ruta = $request->ruta;
+                      $archivo->id_publicacion = $request->id_publicacion;
           }
     }
 

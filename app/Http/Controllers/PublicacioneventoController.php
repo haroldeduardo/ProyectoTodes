@@ -32,13 +32,19 @@ class PublicacioneventoController extends Controller
         ["nombre"=>"required"]);//required es necesario
         if(!$validar_publicacion->fails())//si al validar no hay falla
           {
+            $img="";
+            $imagen=$request->hasfile('img');
+           if($imagen){
+            $img=$request->file('img')->store('imagenes','public'); 
+           }
+            
             $publicacion= new Publicacioneventomodels();
             $publicacion->nombre = $request->nombre;
             $publicacion->descripcion = $request->descripcion;
             $publicacion-> fecha_y_Hora = $request->fecha_y_Hora;
             $publicacion->lugar = $request->lugar;
             $publicacion->estado = $request->estado;
-            $publicacion->urlExterna = $request->urlExterna;
+            $publicacion->urlExterna = $img;
             $publicacion->responsable = $request->responsable;
             $publicacion->fecha_caducidad = $request->fecha_caducidad;
             $publicacion->tipo = $request->tipo;
@@ -46,6 +52,13 @@ class PublicacioneventoController extends Controller
             return response()->json(['mensaje'=>"QUEDO GUARDADA LA PUBLICACION"]);
           }
     }
+
+    /**
+     * Display the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
 
     /**
      * Display the specified resource.
