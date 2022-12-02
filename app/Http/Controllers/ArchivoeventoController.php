@@ -26,17 +26,30 @@ class ArchivoeventoController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+   public function store(Request $request)
     {
         $validar_archivoevento=Validator::make($request->all(),
         ["ruta"=>"required"]);//required es necesario
         if(!$validar_archivoevento->fails())//si al validar no hay falla
           {
+
+           $imagen=$request->hasfile('ruta');
+           if($imagen){
             $archivoevento= new Archivoeventomodels();
-            $archivoevento->ruta = $request->ruta;
+            $img=$request->file('ruta')->store('imagenes','public');
+            $archivoevento->ruta = $img;
             $archivoevento->save();
             return response()->json(['mensaje'=>"QUEDO GUARDADO EL ARCHIVO EVENTO"]);
+           }
+            
+
           }
+    }
+
+// subiendo con move
+    public function codeaguardar(Request $request){
+
+        dd($request);
     }
 
     /**
@@ -48,7 +61,7 @@ class ArchivoeventoController extends Controller
     public function show($id)
     {
         $arshicoshow=Archivoeventomodels::Where('id',$id)->get();
-        return $arshicoshow;
+        return $arshicoshow; 
     }
 
     /**
@@ -104,10 +117,31 @@ class ArchivoeventoController extends Controller
             'ruta'=>$archivoeventodestroy
              ]);
     }
+
     public function ImagenparaPublicacion()
     {
         /*SELECT archivoevento.ruta,archivoevento.id_publicacion,pu.estado,pu.tipo FROM archivoevento 
 INNER JOIN publicacionevento AS pu on pu.id = archivoevento.id
 WHERE pu.estado ="activo" AND pu.tipo ="noticia" ;*/
     }
+
+
+    public function archivopublicacion (){
+
+        $archivo_por_publicacion =archivoeventomodels::select('.nombre AS nombre_categoria','p.nombre AS nombre_publicacion','p.estado AS estado')
+        ->join('detallecategoria AS dc','dc.id_categoria','=','categoria.id')
+        ->join('publicacionevento AS p','p.id','=','dc.id_publicacion')
+        ->where('p.estado','=','inactivo')
+         ->get();
+        return $archivo_por_publicacion;
+    }
+
+    public function archivopublicaciones (){
+
+        $archivo_por_publicacion =archivoeventomodels::select('archivoevento.id_publicacion AS nombre_publicacion')
+        ->join('publicacionevento AS p','p.id','=','archivoevento.id_publicacion')
+        //->join('publicacionevento AS p','p.id','=','dc.id_publicacion')
+        ->get();
+        return $archivo_por_publicacion;
+        }
 }

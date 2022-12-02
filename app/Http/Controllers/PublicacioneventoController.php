@@ -1,9 +1,10 @@
 <?php
 
 namespace App\Http\Controllers;
+use Illuminate\Http\Request;
 use App\Models\Publicacioneventomodels;
 use Illuminate\Support\Facades\Validator;
-use Illuminate\Http\Request;
+
 
 class PublicacioneventoController extends Controller
 {
@@ -73,8 +74,6 @@ class PublicacioneventoController extends Controller
             $publicacion = Publicacioneventomodels::find($id);
                 if(isset($publicacion))
                 {
-                
-
                     $publicacion->nombre = $request->nombre;
                     $publicacion->descripcion = $request->descripcion;
                     $publicacion-> fecha_y_Hora = $request->fecha_y_Hora;
@@ -85,8 +84,7 @@ class PublicacioneventoController extends Controller
                     $publicacion->fecha_caducidad = $request->fecha_caducidad;
                     $publicacion->tipo = $request->tipo;
                     $publicacion->save();
-                    
-                    
+
                     return response()->json(['mensaje'=>"PUBLICACIO ACTUALIZADA"]);
                 }
                  else{
@@ -147,15 +145,6 @@ class PublicacioneventoController extends Controller
         publicacionevento.responsable,publicacionevento.estado,publicacionevento.tipo,ar.ruta FROM publicacionevento 
         INNER JOIN archivoevento AS ar on ar.id = publicacionevento.id
         WHERE publicacionevento.estado ="activo" AND publicacionevento.tipo ="noticia" 
-
-    Creating ⬢ conection-android-camilo... done
-https://conection-android-camilo.herokuapp.com/ | https://git.heroku.com/conection-android-camilo.git
-
-        https://roopashree-uthamacholan.medium.com/retrofit-common-errors-solved-d175d89660fe
-        ;
-        https://rickandmortyapi.com/api/character/avatar/2.jpeg
-        https://rickandmortyapi.com/api/character/avatar/361.jpeg 
-    https://conection-android-camilo.herokuapp.com
         */
 
 $publicacion_noticia = Publicacioneventomodels::select('publicacionevento.nombre AS nombre_publicacion','publicacionevento.descripcion AS descripcion_publicacion',
@@ -187,5 +176,41 @@ public function publicacionEvento()
     ->get();
     return $publicacion_evento;
 }
+
+//consulta de  eventos 
+
+public function eventos(){
+    $publicacion_evento = Publicacioneventomodels::select('publicacionevento.nombre AS nombre_publicacion','publicacionevento.descripcion AS descripcion_publicacion','publicacionevento.lugar',
+    'publicacionevento.responsable','publicacionevento.estado','publicacionevento.tipo','ar.ruta AS ruta_archivo')
+    ->join('archivoevento AS ar','ar.id','=','publicacionevento.id')
+    //->where('publicacionevento.estado','=','activo')
+    ->where('publicacionevento.tipo','=','evento')
+    ->get();
+    return $publicacion_evento;
+}
+
+
+
+    //eventos por fecha recientes priemero sacamos todos los eventos
+
+    public function eventosporfechas(){
+
+        //$eventos= Publicacioneventomodels:: where("tipo", "=", "evento")->whereDate('fecha_y_Hora','>=',now()->subDays(70))->select("id","nombre","tipo")
+       // $eventos= Publicacioneventomodels:: where("tipo", "=", "evento")->whereBetween('fecha_y_Hora',[now()->subDays(10000),today()])->select("id","nombre","tipo")
+       $eventos= Publicacioneventomodels:: where("tipo", "=", "evento")->whereMonth('fecha_y_Hora',now()->month)->whereYear('fecha_y_Hora',now()->year)->select("id","nombre","tipo")
+        ->get();
+        return $eventos;
+    }
+    
+    public function noticiasporfechas(){
+
+        //$eventos= Publicacioneventomodels:: where("tipo", "=", "evento")->whereDate('fecha_y_Hora','>=',now()->subDays(70))->select("id","nombre","tipo")
+       // $eventos= Publicacioneventomodels:: where("tipo", "=", "evento")->whereBetween('fecha_y_Hora',[now()->subDays(10000),today()])->select("id","nombre","tipo")
+       $noticias= Publicacioneventomodels:: where("tipo", "=", "noticia")->whereMonth('fecha_y_Hora',now()->month)->whereYear('fecha_y_Hora',now()->year)->select("id","nombre","tipo",'fecha_y_Hora')
+        ->get();
+        return $noticias;
+    }
+
+    
 
 }

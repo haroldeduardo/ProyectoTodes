@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Publicacioneventomodels extends Model
 {
     use HasFactory;
+  //  public $timestamps = FALSE;
     protected $table = 'publicacionevento';
     protected $fillable = [
          'fecha_y_hora',
@@ -19,7 +20,6 @@ class Publicacioneventomodels extends Model
          'responsable',
          'fecha_caducidad',
          'tipo'// <-- Aquí  enum
-   
     ];
 
   /*  public  function archivo(){

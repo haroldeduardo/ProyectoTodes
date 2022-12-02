@@ -2913,6 +2913,7 @@
                 "type": "zip",
                 "url": "https://api.github.com/repos/spatie/laravel-permission/zipball/76dd1533294e6a48877f17fdc2b499cff16d4661",
                 "reference": "76dd1533294e6a48877f17fdc2b499cff16d4661",
+
                 "shasum": ""
             },
             "require": {
@@ -7902,5 +7903,5 @@
         "php": "^8.0.2"
     },
     "platform-dev": [],
-    "plugin-api-version": "2.3.0"
+    "plugin-api-version": "2.1.0"
 }

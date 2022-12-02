@@ -19,14 +19,14 @@ return new class extends Migration
             $table->foreignId('id_publicacion')
             ->nullable()
             ->constrained('publicacionevento')
-            ->cascadeOnUpdate()
+            //->cascadeOnUpdate()
             ->nullOnDelete();
 
 
             $table->foreignId('id_categoria')
             ->nullable()
             ->constrained('categoria')
-            ->cascadeOnUpdate()
+            //->cascadeOnUpdate()
             ->nullOnDelete();
             $table->timestamps();
         });

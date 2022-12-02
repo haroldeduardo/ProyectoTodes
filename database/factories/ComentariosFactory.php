@@ -20,6 +20,7 @@ class ComentariosFactory extends Factory
             'contenido'=>$this->faker->name(),
             'clasificasion'=>$this->faker->randomElement($array = array ('Me interesa', 'No me interesa')), // 'b',
             'fecha_comentario'=>$this->faker->Date(),
+
             'id_usuario'=>$this->faker->numberBetween(1,40),
             'id_publicacion'=>$this->faker->numberBetween(1,40),
 

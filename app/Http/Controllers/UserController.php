@@ -2,15 +2,19 @@
 
 namespace App\Http\Controllers;
 
+//use Illuminate\Http\Controller;
 use Illuminate\Http\Request;
 use App\Models\User;
-use Illuminate\Support\Facades\Hash;
+use Spatie\Permission\Models\Role;
 use Illuminate\Support\Facades\Validator;
-
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Crypt;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Arr;
+use Spatie\Permission\Traits\HasRoles;
 
 class UserController extends Controller
 {
-
     public function login(Request $request) {
 
         $request->validate([ //validator
@@ -19,10 +23,14 @@ class UserController extends Controller
         ]);
 
         $user = User::where("email", "=", $request->email)->first();
+        
+        
         // revisamos si el id es existente
         if( isset($user->id) ){
+            $roles = $user->getRoleNames();
+            $check=Hash::check($request->password ,$user->password);
             // Comprobamos la contraseña ---
-            if(Hash::check($request->password, $user->password)){
+            if(Hash::check($request->password ,$user->password)){
                 //creamos el token
                 $token = $user->createToken("auth_token")->plainTextToken;
                 //si está todo es correcto
@@ -32,11 +40,14 @@ class UserController extends Controller
                     "access_token" => $token,
                     "id" => $user->id,
                     "name" => $user->name,
+                     "rol"=>$roles,
+                    "log"=> $check
                 ]);
             }else{
                 return response()->json([
                     "status" => 0,
-                    "msg" => "password incorrecto",
+                    "msg" => "usuario incorrecto logeado",
+                    
                 ]);
             }
 
@@ -44,6 +55,7 @@ class UserController extends Controller
             return response()->json([
                 "status" => 0,
                 "msg" => "Usuario no registrado",
+
             ]);
         }
     }
@@ -55,10 +67,19 @@ class UserController extends Controller
      */
     public function index()
     {
-        $usuario=User::all();
-        return $usuario;
+
+        $usuariosConRol = User::has('roles')->get();
+        //$usuariosConRol=User::all();
+        //$usuario->getRoleNames();
+        return $usuariosConRol;
     }
 
+    public function create()
+        {
+           $roles = Role::pluck('name', 'name')->all(); 
+           return $roles;
+        }
+    
     /**
      * Store a newly created resource in storage.
      *
@@ -79,13 +100,13 @@ class UserController extends Controller
             $usuario->genero = $request->genero;
             $usuario->fecha_nacimiento = $request->fecha_nacimiento;
             $usuario-> email = $request->email;
-            $usuario->password = Hash::make($request->password);
+            $usuario->password = Hash::make($request->password); 
             $usuario->save();
-            return response()->json(['mensaje'=>"QUEDO GUARDADO EL USUARIO"]);
+            return response()->json(['mensaje'=>"Usuario  quedo guardado"]);
           }
-            return response()->json(['mensaje'=>"QUEDO GUARDADA LA CATEGORIA"]);
-          }
-    
+
+
+    }
 
     /**
      * Display the specified resource.
@@ -117,10 +138,10 @@ class UserController extends Controller
                 {
                     $usuario->identificacion = $request->identificacion;
                     $usuario->nombre = $request->nombre;
+                    $usuario->apellidos = $request->apellidos;
                     $usuario->fecha_nacimiento = $request->fecha_nacimiento;
                     $usuario-> email = $request->email;
-                    $usuario->password = $request->password;
-                
+                    $usuario->password = Hash::make($request->password);
                     $usuario->save();
                     return response()->json(['mensaje'=>"USUARIO ACTUALIZADO"]);
                 }
@@ -157,6 +178,11 @@ class UserController extends Controller
             'nombre'=>$usuariodestroy
              ]);
     }
+
+    
+
+
+
     public function registrar(Request $request)
     {
             $validar_registro=Validator::make($request->all(),
@@ -166,18 +192,24 @@ class UserController extends Controller
                 $usuario=new User();
                 $usuario->identificacion = $request->identificacion;
                 $usuario->nombre = $request->nombre;
-                $usuario->apellido = $request->apellido;
+                $usuario->apellidos = $request->apellidos;
+                $usuario->genero=$request->genero;
                 $usuario->fecha_nacimiento = $request->fecha_nacimiento;
                 $usuario->email = $request->email;
                 $usuario->password = Hash::make($request->password);
                 $usuario->save();
+                $usuario->assignRole('UserComunidad');
                 return response()->json(['mensaje'=>"EL USUARIO SE REGISTRO CORRECTAMENTE"]);
-          
             }
             
            // return response()->json(['mensaje'=>"Usuario registrado correctamente"]);
     }
-    /*public function login(Request $request)
+
+
+/*
+    //Se comenta por existir uno de la rama de Yuliet
+    public function login(Request $request)
+>>>>>>> origin/desarrollo_app
     {
         $usu=User::Where('email',$request->email)->get();
         
@@ -191,6 +223,23 @@ class UserController extends Controller
                 return response()->json(['mensaje'=>"Usuario incorrecto"]);
             }
         
-        
     }*/
+
+
+    
+    /**
+     *funcion que esta mostrando los roles por el id  del usuario
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function showUsersRoles($id)
+    {
+        $usuario=User::Where('id','=',$id)->first();
+        
+        return $usuario->getRoleNames();;
+    }
+
 }
+
+?>

@@ -4,6 +4,8 @@ namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use App\Models\User;
+use App\Models\Tag;
 
 
 class DatabaseSeeder extends Seeder
@@ -28,6 +30,13 @@ class DatabaseSeeder extends Seeder
        $this->call(archivoevento_seeder::class);
        $this->call(publicacionevent_seeder::class);       
   //     $this->call(comentarios_seeder::class);
-      
+
+      // $this->call(eventos_seeder::class);
+       $this->call(categoria_seeder::class);
+       $this->call(detallecategoria_seeder::class);
+       $this->call(RoleSeeder::class);
+       $this->call(UserTableSeeder::class);
+       $this->call(Comentario_seeder::class);
+
     }
 }

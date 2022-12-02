@@ -1,10 +1,12 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use Illuminate\Http\Request;
 use App\Models\Categoriamodels;
-use Illuminate\Support\Facades\DB;//llamo la DB
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
+
 
 class CategoriaController extends Controller
 {
@@ -138,7 +140,7 @@ class CategoriaController extends Controller
           inner join detallecategoria  dc on dc.id_categoria = c.id
           INNER join publicacionevento p on p.id = dc.id_publicacion  */
           //DB::table('categoria AS c')
-         $publicacion_por_categoria = Categoriamodels::select('categoria.nombre AS nombre_categoria','p.nombre AS nombre_publicacion')
+         $publicacion_por_categoria = Categoriamodels::select('categoria.nombre AS nombre_categoria','p.nombre AS nombre_publicacion','dc.prioridad as Prioridades')
          ->join('detallecategoria AS dc','dc.id_categoria','=','categoria.id')
          ->join('publicacionevento AS p','p.id','=','dc.id_publicacion')
           ->get();
@@ -173,6 +175,9 @@ class CategoriaController extends Controller
          return $publicacion_por_categoria;
      }
 
+     
+
 
     
 }
+
