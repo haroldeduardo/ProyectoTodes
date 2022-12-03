@@ -40,7 +40,9 @@ class UserController extends Controller
                     "msg" => "usuario correctamente logeado",
                     "access_token" => $token,
                     "id" => $user->id,
-                    "name" => $user->name,
+                    "name" => $user->nombre,
+                    "apellido" => $user->apellidos,
+                    "email" => $user->email,
                      "rol"=>$roles,
                     "log"=> $check
                 ]);

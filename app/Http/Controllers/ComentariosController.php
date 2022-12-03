@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Comentarios;
 use Illuminate\Support\Facades\Validator;
+use Carbon\Carbon;
 
 class ComentariosController extends Controller
 {
@@ -34,7 +35,7 @@ class ComentariosController extends Controller
             $comentario = new Comentarios();
             $comentario->contenido = $request->contenido;
             $comentario->clasificacion = $request->clasificacion;
-            $comentario->fecha_comentario = $request->fecha_comentario;
+            $comentario->fecha_comentario = Carbon::now();
             $comentario->save();
             return response()->json(['mensaje'=>"QUEDO GUARDADO EL COMENTARIO"]);
           }
@@ -72,6 +73,7 @@ class ComentariosController extends Controller
                     $comentariosupdate->clasificacion = $request->clasificacion;
                     $comentariosupdate->fecha_comentario = $request->fecha_comentario;
                     $comentariosupdate->save();
+                    
                     return response()->json(['mensaje'=>"QUEDO ACTUALIZADA ESE COMENTARIO"]);
                 }
                  else{
