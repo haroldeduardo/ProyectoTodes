@@ -53,6 +53,15 @@ class CategoriaController extends Controller
         return $categoriashow;
     }
 
+
+
+    public function busquedadenombres($nombre)
+    {
+        $categoriashow=Categoriamodels::Where('nombre',$nombre)->get();
+        return $categoriashow;
+    }
+
+
     /**
      * Update the specified resource in storage.
      *

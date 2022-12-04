@@ -52,6 +52,7 @@ Route::get('/categoria',[CategoriaController::class,'index']);
 Route::get('/conscategoria',[CategoriaController::class,'consulta']);
 Route::get('/conscategoria2',[CategoriaController::class,'consulta2']);
 Route::get('/categoria/{id}',[CategoriaController::class,'show']);
+Route::get('/categorianombre/{nombre}',[CategoriaController::class,'busquedadenombres']);
 Route::post('/categoria',[CategoriaController::class,'store']);
 Route::put('/categoria/{id}',[CategoriaController::class,'update']);
 Route::delete('/categoria/{id}',[CategoriaController::class,'destroy']);
