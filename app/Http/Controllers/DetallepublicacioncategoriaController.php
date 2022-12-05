@@ -52,7 +52,7 @@ class DetallepublicacioncategoriaController extends Controller
         
         
 
-        $detalle = Detallecategoriaomodels::select('detallecategoria.id AS id_detalle','detallecategoria.prioridad AS Prioridad_detallle','p.nombre AS nombre_publicacion','c.nombre as Nombresdecategorias','c.descripcion as Descripciodecategorias')
+        $detalle = Detallecategoriaomodels::select('detallecategoria.id AS id_detalle','detallecategoria.id_publicacion AS id_publicacion','detallecategoria.prioridad AS Prioridad_detallle','p.nombre AS nombre_publicacion','c.nombre as Nombresdecategorias','c.descripcion as Descripciodecategorias')
         ->join('categoria AS c','c.id','=','detallecategoria.id_categoria')
         ->join('publicacionevento AS p','p.id','=','detallecategoria.id_publicacion')
         ->Where('p.id',$id)
