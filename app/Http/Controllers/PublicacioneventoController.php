@@ -166,7 +166,7 @@ class PublicacioneventoController extends Controller
         ;
        */
 
-    $publicacion_noticia = Publicacioneventomodels::select('publicacionevento.nombre AS nombre_publicacion','publicacionevento.descripcion AS descripcion_publicacion','publicacionevento.lugar',
+    $publicacion_noticia = Publicacioneventomodels::select('publicacionevento.id','publicacionevento.nombre AS nombre_publicacion','publicacionevento.descripcion AS descripcion_publicacion','publicacionevento.lugar',
     'publicacionevento.responsable','publicacionevento.estado','publicacionevento.tipo','ar.ruta AS ruta_archivo')
     ->join('archivoevento AS ar','ar.id','=','publicacionevento.id')
     //->where('publicacionevento.estado','=','activo')
