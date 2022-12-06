@@ -39,7 +39,8 @@ class Publicacionevento_seeder extends Seeder
         ([
             'nombre' => 'Muerte de un trans peruano',
             'descripcion' => 'Rodrigo Ventocilla: la polémica muerte de un estudiante de Harvard trans peruano tras ser detenido por la policía en Bali',
-            'fecha_y_Hora'=>'2022-11-25 20:22:11',
+            'fecha'=>'2022-11-25 ',
+            'hora'=>'20:22:11',
             'lugar'=>'Indonesia',
             'estado'=>'activo',
             'urlExterna'=>'https://www.bbc.com/mundo/noticias-internacional-62683218',
@@ -57,7 +58,8 @@ class Publicacionevento_seeder extends Seeder
         ([
             'nombre' => ' la rebeldia lesbica',
             'descripcion' => 'El 13 de octubre se celebra.',
-            'fecha_y_Hora'=>'2022-10-13 00:00:00',
+            'fecha'=>'2022-11-25 ',
+            'hora'=>'20:22:11',
             'lugar'=>'parque  caldas-popayan',
             'estado'=>'activo',
             'urlExterna'=>'http://portalantiguo.sdmujer.gov.co/inicio/424-dia-de-las-rebeldias-lesbicas',
@@ -72,7 +74,8 @@ class Publicacionevento_seeder extends Seeder
         ([
             'nombre' => 'Dia  lesbica',
             'descripcion' => 'El 13 de octubre se celebra.',
-            'fecha_y_Hora'=>'2022-10-13 00:00:00',
+            'fecha'=>'2022-11-25 ',
+            'hora'=>'20:22:11',
             'lugar'=>'parque  caldas-popayan',
             'estado'=>'activo',
             'urlExterna'=>'http://portalantiguo.sdmujer.gov.co/inicio/424-dia-de-las-rebeldias-lesbicas',
@@ -87,7 +90,8 @@ class Publicacionevento_seeder extends Seeder
         ([
             'nombre' => 'rebeldia lesbica',
             'descripcion' => 'El 13 de octubre se celebra.',
-            'fecha_y_Hora'=>'2022-10-13 00:00:00',
+            'fecha'=>'2022-11-25 ',
+            'hora'=>'20:22:11',
             'lugar'=>'parque  caldas-popayan',
             'estado'=>'activo',
             'urlExterna'=>'http://portalantiguo.sdmujer.gov.co/inicio/424-dia-de-las-rebeldias-lesbicas',
@@ -106,7 +110,8 @@ class Publicacionevento_seeder extends Seeder
         ([
             'nombre' => 'Educando sobre la transfobia: Conozca a Aurora',
             'descripcion' => 'Durante años, la población LGTB+ ha sido excluída o reprimida en el país. Sin embargo, con el auge de las nuevas tecnologías, ',
-            'fecha_y_Hora'=>'2022-11-25 00:00:00',
+            'fecha'=>'2022-11-25 ',
+            'hora'=>'20:22:11',
             'lugar'=>'COlombia',
             'estado'=>'activo',
             'urlExterna'=>'https://caracol.com.co/radio/2021/12/10/tecnologia/1639149631_030727.html',
@@ -121,7 +126,8 @@ class Publicacionevento_seeder extends Seeder
         ([
             'nombre' => 'Dia de la rebeldia lesbica',
             'descripcion' => 'El 13 de octubre se celebra.',
-            'fecha_y_Hora'=>'2022-10-13 00:00:00',
+            'fecha'=>'2022-11-25 ',
+            'hora'=>'20:22:11',
             'lugar'=>'parque  caldas-popayan',
             'estado'=>'activo',
             'urlExterna'=>'http://portalantiguo.sdmujer.gov.co/inicio/424-dia-de-las-rebeldias-lesbicas',
@@ -137,7 +143,8 @@ class Publicacionevento_seeder extends Seeder
         ([
             'nombre' => 'Educando sobre la transfobia: Conozca a Aurora',
             'descripcion' => 'Durante años, la población LGTB+ ha sido excluída o reprimida en el país. Sin embargo, con el auge de las nuevas tecnologías, ',
-            'fecha_y_Hora'=>'2022-11-25 00:00:00',
+            'fecha'=>'2022-11-26 ',
+            'hora'=>'20:22:11',
             'lugar'=>'COlombia',
             'estado'=>'activo',
             'urlExterna'=>'https://caracol.com.co/radio/2021/12/10/tecnologia/1639149631_030727.html',
@@ -153,7 +160,8 @@ class Publicacionevento_seeder extends Seeder
         ([
             'nombre' => 'Educando sobre la transfobia: Conozca a Aurora',
             'descripcion' => 'Durante años, la población LGTB+ ha sido excluída o reprimida en el país. Sin embargo, con el auge de las nuevas tecnologías, ',
-            'fecha_y_Hora'=>'2022-11-25 00:00:00',
+            'fecha'=>'2022-11-27 ',
+            'hora'=>'20:22:11',
             'lugar'=>'COlombia',
             'estado'=>'activo',
             'urlExterna'=>'https://caracol.com.co/radio/2021/12/10/tecnologia/1639149631_030727.html',
@@ -168,7 +176,8 @@ class Publicacionevento_seeder extends Seeder
         ([
             'nombre' => 'Educando sobre la transfobia: Conozca a Aurora',
             'descripcion' => 'Durante años, la población LGTB+ ha sido excluída o reprimida en el país. Sin embargo, con el auge de las nuevas tecnologías, ',
-            'fecha_y_Hora'=>'2022-11-25 00:00:00',
+            'fecha'=>'2022-11-28 ',
+            'hora'=>'20:22:11',
             'lugar'=>'COlombia',
             'estado'=>'activo',
             'urlExterna'=>'https://caracol.com.co/radio/2021/12/10/tecnologia/1639149631_030727.html',
@@ -183,7 +192,8 @@ class Publicacionevento_seeder extends Seeder
         ([
             'nombre' => 'Educando sobre la transfobia: Conozca a Aurora',
             'descripcion' => 'Durante años, la población LGTB+ ha sido excluída o reprimida en el país. Sin embargo, con el auge de las nuevas tecnologías, ',
-            'fecha_y_Hora'=>'2022-11-25 00:00:00',
+            'fecha'=>'2022-11-29 ',
+            'hora'=>'20:22:11',
             'lugar'=>'COlombia',
             'estado'=>'activo',
             'urlExterna'=>'https://caracol.com.co/radio/2021/12/10/tecnologia/1639149631_030727.html',

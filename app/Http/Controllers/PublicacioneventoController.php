@@ -41,7 +41,8 @@ class PublicacioneventoController extends Controller
             $publicacion= new Publicacioneventomodels();
             $publicacion->nombre = $request->nombre;
             $publicacion->descripcion = $request->descripcion;
-            $publicacion-> fecha_y_Hora = $request->fecha_y_Hora;
+            $publicacion-> fecha = $request->fecha;
+            $publicacion->hora=$request->hora;
             $publicacion->lugar = $request->lugar;
             $publicacion->estado = $request->estado;
             $publicacion->urlExterna = $img;
@@ -90,7 +91,8 @@ class PublicacioneventoController extends Controller
                 {
                     $publicacion->nombre = $request->nombre;
                     $publicacion->descripcion = $request->descripcion;
-                    $publicacion-> fecha_y_Hora = $request->fecha_y_Hora;
+                    $publicacion-> fecha = $request->fecha;
+                    $publicacion->hora=$request->hora;
                     $publicacion->lugar = $request->lugar;
                     $publicacion->estado = $request->estado;
                     $publicacion->urlExterna = $request->urlExterna;
@@ -141,7 +143,7 @@ class PublicacioneventoController extends Controller
     public function  fechaeventos(){
 
 
-        $publicacion = Publicacioneventomodels::whereDate('fecha_y_Hora','>','1972-06-02')->get();
+        $publicacion = Publicacioneventomodels::whereDate('fecha','>','1972-06-02')->get();
         return $publicacion;
     }
 
@@ -191,12 +193,14 @@ public function eventos(){
 
     //eventos por fecha recientes priemero sacamos todos los eventos
 
-    public function eventosporfechas(){
+    public function eventosporfechas($fecha ){
 
+        $fecha=date('Y-m-d');
+        $eventos=Publicacioneventomodels::whereDate('fecha',$fecha)->get();
         //$eventos= Publicacioneventomodels:: where("tipo", "=", "evento")->whereDate('fecha_y_Hora','>=',now()->subDays(70))->select("id","nombre","tipo")
        // $eventos= Publicacioneventomodels:: where("tipo", "=", "evento")->whereBetween('fecha_y_Hora',[now()->subDays(10000),today()])->select("id","nombre","tipo")
-       $eventos= Publicacioneventomodels:: where("tipo", "=", "evento")->whereMonth('fecha_y_Hora',now()->month)->whereYear('fecha_y_Hora',now()->year)->select("id","nombre","tipo")
-        ->get();
+      // $eventos= Publicacioneventomodels:: where("tipo", "=", "evento")->whereMonth('fecha',now()->month)->whereYear('fecha',now()->year)->select("id","nombre","tipo")
+       // ->get();
         return $eventos;
     }
     
@@ -204,7 +208,7 @@ public function eventos(){
 
         //$eventos= Publicacioneventomodels:: where("tipo", "=", "evento")->whereDate('fecha_y_Hora','>=',now()->subDays(70))->select("id","nombre","tipo")
        // $eventos= Publicacioneventomodels:: where("tipo", "=", "evento")->whereBetween('fecha_y_Hora',[now()->subDays(10000),today()])->select("id","nombre","tipo")
-       $noticias= Publicacioneventomodels:: where("tipo", "=", "noticia")->whereMonth('fecha_y_Hora',now()->month)->whereYear('fecha_y_Hora',now()->year)->select("id","nombre","tipo",'fecha_y_Hora')
+       $noticias= Publicacioneventomodels:: where("tipo", "=", "noticia")->whereMonth('fecha',now()->month)->whereYear('fecha',now()->year)->select("id","nombre","tipo",'fecha')
         ->get();
         return $noticias;
     }

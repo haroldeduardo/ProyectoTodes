@@ -17,7 +17,8 @@ return new class extends Migration
             $table->id();
             $table->string('nombre');
             $table->string('descripcion');
-            $table->dateTime("fecha_y_Hora");
+            $table->date("fecha");// <-- actualizacion del atributo
+            $table->time("hora");// <--actualizacion del atributo
             $table->string('lugar');
             $table->enum("estado", ["activo", "inactivo"]);// <-- Aquí el enum
             $table->string('urlExterna');
