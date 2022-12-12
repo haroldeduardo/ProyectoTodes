@@ -103,6 +103,23 @@ class Publicacionevento_seeder extends Seeder
 
           
         ]);
+
+
+        DB::table('publicacionevento')->insert 
+        ([
+            'nombre' => 'Educando sobre la transfobia: Conozca a Aurora',
+            'descripcion' => 'Durante años, la población LGTB+ ha sido excluída o reprimida en el país. Sin embargo, con el auge de las nuevas tecnologías, ',
+            'fecha_y_Hora'=>'2022-11-25 00:00:00',
+            'lugar'=>'COlombia',
+            'estado'=>'activo',
+            'urlExterna'=>'imagenes/lvdWBlPaxMTTyDqJvyRYmdTqhB7ONf0KpYt5eWcW.png',
+            'responsable'=>'Secretario de la  comunidad ',
+            'fecha_caducidad'=>'2022-11-25',
+            'tipo'=>'Noticia',
+
+
+          
+        ]);
      
 
         
