@@ -47,6 +47,9 @@ class categoria_seeder extends Seeder
           
         ]);
 
+   
+
+
        // Categoriamodels::factory(50)->create();
     }
 }
