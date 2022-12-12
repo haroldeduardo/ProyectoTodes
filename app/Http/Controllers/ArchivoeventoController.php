@@ -124,7 +124,7 @@ class ArchivoeventoController extends Controller
         ->join('publicacionevento AS p','p.id','=','dc.id_publicacion')
         ->where('p.estado','=','inactivo')
          ->get();
-        return $publicacion_por_categoria;
+        return $archivo_por_publicacion;
     }
 
     public function archivopublicaciones (){
