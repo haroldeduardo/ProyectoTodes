@@ -112,7 +112,7 @@ class Publicacionevento_seeder extends Seeder
             'fecha_y_Hora'=>'2022-11-25 00:00:00',
             'lugar'=>'COlombia',
             'estado'=>'activo',
-            'urlExterna'=>'imagenes/lvdWBlPaxMTTyDqJvyRYmdTqhB7ONf0KpYt5eWcW.png',
+            'urlExterna'=>'https://images.pexels.com/photos/919194/pexels-photo-919194.jpeg?auto=compress&cs=tinysrgb&w=600',
             'responsable'=>'Secretario de la  comunidad ',
             'fecha_caducidad'=>'2022-11-25',
             'tipo'=>'Noticia',
