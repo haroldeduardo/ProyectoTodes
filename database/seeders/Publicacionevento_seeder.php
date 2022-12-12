@@ -108,7 +108,7 @@ class Publicacionevento_seeder extends Seeder
         
 
 
-        //
-       // Publicacioneventomodels::factory(50)->create();
+        //hhhhhhhhhh
+        //Publicacioneventomodels::factory(50)->create();
     }
 }
