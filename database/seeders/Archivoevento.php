@@ -13,6 +13,8 @@ class Archivoevento extends Seeder
      *
      * @return void
      */
+
+     
     public function run()
     {
       
@@ -24,7 +26,7 @@ class Archivoevento extends Seeder
 
           
         ]);
-
+/*
          
         DB::table('archivoevento')->insert 
         ([
@@ -49,6 +51,7 @@ class Archivoevento extends Seeder
 
 
 
-        //Archivoeventomodels::factory(50)->create();
+        //Archivoeventomodels::factory(50)->create();*/
     }
+    
 }
