@@ -83,7 +83,7 @@ class Publicacionevento_seeder extends Seeder
             'estado'=>'activo',
             'urlExterna'=>'https://images.pexels.com/photos/13030035/pexels-photo-13030035.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load',
             'responsable'=>'Secretario de la  comunidad ',
-            'fecha_caducidad'=>'2022-11-26',
+            'fecha_caducidad'=>'2022-11-27',
             'tipo'=>'Noticia',
 
 
