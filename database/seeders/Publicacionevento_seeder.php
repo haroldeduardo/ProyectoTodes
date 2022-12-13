@@ -93,16 +93,16 @@ class Publicacionevento_seeder extends Seeder
 
         DB::table('publicacionevento')->insert 
         ([
-            'nombre' => 'Educando sobre la transfobia: Conozca a Aurora',
-            'descripcion' => 'Durante años, la población LGTB+ ha sido excluída o reprimida en el país. Sin embargo, con el auge de las nuevas tecnologías, ',
-            'fecha_y_Hora'=>'2022-11-25 00:00:00',
-            'lugar'=>'COlombia',
+          
+            'nombre' => 'Gastronomia',
+            'descripcion' => 'Gran encuentro de los mejores chefs de la ciudad Blanca',
+            'fecha_y_hora'=>'2022-05-12 20:12:12',
+            'lugar'=>'Parque caldas',
             'estado'=>'activo',
             'urlExterna'=>'https://images.pexels.com/photos/919194/pexels-photo-919194.jpeg?auto=compress&cs=tinysrgb&w=600',
-            'responsable'=>'Secretario de la  comunidad ',
-            'fecha_caducidad'=>'2022-11-25',
-            'tipo'=>'Noticia',
-
+            'responsable'=>'Alcaldia',
+            'fecha_caducidad'=>'2023-09-20',
+            'tipo'=>'evento'
 
           
         ]);
@@ -110,16 +110,15 @@ class Publicacionevento_seeder extends Seeder
 
         DB::table('publicacionevento')->insert 
         ([
-            'nombre' => 'Educando sobre la transfobia: Conozca a Aurora',
-            'descripcion' => 'Durante años, la población LGTB+ ha sido excluída o reprimida en el país. Sin embargo, con el auge de las nuevas tecnologías, ',
-            'fecha_y_Hora'=>'2022-11-25 00:00:00',
-            'lugar'=>'COlombia',
+            'nombre' => 'Desfile de bailarines',
+            'descripcion' => 'concurso de desfile para la comunidad',
+            'fecha_y_hora'=>'2022-06-14 20:21:12',
+            'lugar'=>'Saldra desde Campanario',
             'estado'=>'activo',
             'urlExterna'=>'https://images.pexels.com/photos/1166580/pexels-photo-1166580.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load',
-            'responsable'=>'Secretario de la  comunidad ',
-            'fecha_caducidad'=>'2022-11-25',
-            'tipo'=>'Noticia',
-
+            'responsable'=>'Alcaldia de Popayan',
+            'fecha_caducidad'=>'2023-12-22',
+            'tipo'=>'evento'
 
           
         ]);
