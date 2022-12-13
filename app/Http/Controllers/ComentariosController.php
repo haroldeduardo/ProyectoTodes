@@ -35,8 +35,6 @@ class ComentariosController extends Controller
             $comentario = new Comentarios();
             $comentario->contenido = $request->contenido;
             $comentario->clasificacion = $request->clasificacion;
-            $comentario->id_usuario = $request->id_usuario;
-            $comentario->publicacion = $request->id_publicacion;
             $comentario->fecha_comentario = Carbon::now();
             $comentario->save();
             return response()->json(['mensaje'=>"QUEDO GUARDADO EL COMENTARIO"]);
