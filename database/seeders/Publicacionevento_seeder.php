@@ -19,7 +19,7 @@ class Publicacionevento_seeder extends Seeder
 
 
         /*
-        DB::table('publicacionevento')->insert 
+        DB::table('publicacionevento')->insert
         ([
             'nombre' => 'salud',
             'descripcion' => 'charla de salud para menores de la comunidad',
@@ -32,10 +32,10 @@ class Publicacionevento_seeder extends Seeder
             'tipo'=>'Evento',
 
 
-          
+
         ]);
 */
-        DB::table('publicacionevento')->insert 
+        DB::table('publicacionevento')->insert
         ([
             'nombre' => 'Muerte de un trans peruano',
             'descripcion' => 'Rodrigo Ventocilla: la polémica muerte de un estudiante de Harvard trans peruano tras ser detenido por la policía en Bali',
@@ -48,12 +48,10 @@ class Publicacionevento_seeder extends Seeder
             'tipo'=>'Noticia',
 
 
-          
+
         ]);
-
-
-
-        DB::table('publicacionevento')->insert 
+        
+        DB::table('publicacionevento')->insert
         ([
             'nombre' => ' la rebeldia lesbica',
             'descripcion' => 'El 13 de octubre se celebra.',
@@ -66,15 +64,15 @@ class Publicacionevento_seeder extends Seeder
             'tipo'=>'Evento',
 
 
-          
+
         ]);
-    
-      
 
 
 
 
-        DB::table('publicacionevento')->insert 
+
+
+        DB::table('publicacionevento')->insert
         ([
             'nombre' => 'Educando sobre la transfobia: Conozca a Aurora',
             'descripcion' => 'Durante años, la población LGTB+ ha sido excluída o reprimida en el país. Sin embargo, con el auge de las nuevas tecnologías, ',
@@ -87,13 +85,13 @@ class Publicacionevento_seeder extends Seeder
             'tipo'=>'Noticia',
 
 
-          
+
         ]);
 
 
-        DB::table('publicacionevento')->insert 
+        DB::table('publicacionevento')->insert
         ([
-          
+
             'nombre' => 'Gastronomia',
             'descripcion' => 'Gran encuentro de los mejores chefs de la ciudad Blanca',
             'fecha_y_hora'=>'2022-05-12 20:12:12',
@@ -104,11 +102,11 @@ class Publicacionevento_seeder extends Seeder
             'fecha_caducidad'=>'2023-09-20',
             'tipo'=>'evento'
 
-          
+
         ]);
 
 
-        DB::table('publicacionevento')->insert 
+        DB::table('publicacionevento')->insert
         ([
             'nombre' => 'Desfile de bailarines',
             'descripcion' => 'concurso de desfile para la comunidad',
@@ -120,11 +118,11 @@ class Publicacionevento_seeder extends Seeder
             'fecha_caducidad'=>'2023-12-22',
             'tipo'=>'evento'
 
-          
+
         ]);
-     
-     
-        DB::table('publicacionevento')->insert 
+
+
+        DB::table('publicacionevento')->insert
         ([
             'nombre' => 'Baile deportivo',
             'descripcion' => 'Ven y disfruta de la integracion',
@@ -137,10 +135,8 @@ class Publicacionevento_seeder extends Seeder
             'tipo'=>'noticia'
 
 
-          
-        ]);
-        
 
+        ]);
 
         //hhhhhhhhhh
         //Publicacioneventomodels::factory(50)->create();

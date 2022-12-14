@@ -75,7 +75,7 @@ class ComentariosController extends Controller
                     $comentariosupdate->clasificacion = $request->clasificacion;
                     $comentariosupdate->fecha_comentario = $request->fecha_comentario;
                     $comentariosupdate->save();
-                    
+
                     return response()->json(['mensaje'=>"QUEDO ACTUALIZADA ESE COMENTARIO"]);
                 }
                  else{

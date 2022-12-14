@@ -35,9 +35,9 @@ class PublicacioneventoController extends Controller
             $img="";
             $imagen=$request->hasfile('img');
            if($imagen){
-            $img=$request->file('img')->store('imagenes','public'); 
+            $img=$request->file('img')->store('imagenes','public');
            }
-            
+
             $publicacion= new Publicacioneventomodels();
             $publicacion->nombre = $request->nombre;
             $publicacion->descripcion = $request->descripcion;
@@ -198,7 +198,7 @@ public function eventos(){
         ->get();
         return $eventos;
     }
-    
+
     public function noticiasporfechas(){
 
         //$eventos= Publicacioneventomodels:: where("tipo", "=", "evento")->whereDate('fecha_y_Hora','>=',now()->subDays(70))->select("id","nombre","tipo")
@@ -208,6 +208,6 @@ public function eventos(){
         return $noticias;
     }
 
-    
+
 
 }
