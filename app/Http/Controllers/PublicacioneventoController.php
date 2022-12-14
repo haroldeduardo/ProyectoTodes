@@ -35,9 +35,9 @@ class PublicacioneventoController extends Controller
             $img="";
             $imagen=$request->hasfile('img');
            if($imagen){
-            $img=$request->file('img')->store('imagenes','public'); 
+            $img=$request->file('img')->store('imagenes','public');
            }
-            
+
             $publicacion= new Publicacioneventomodels();
             $publicacion->nombre = $request->nombre;
             $publicacion->descripcion = $request->descripcion;
@@ -158,28 +158,28 @@ class PublicacioneventoController extends Controller
     public function publicacionNoticia()
     {
        /* SELECT publicacionevento.nombre,publicacionevento.descripcion,publicacionevento.lugar,
-        publicacionevento.responsable,publicacionevento.estado,publicacionevento.tipo,ar.ruta FROM publicacionevento 
+        publicacionevento.responsable,publicacionevento.estado,publicacionevento.tipo,ar.ruta FROM publicacionevento
         INNER JOIN archivoevento AS ar on ar.id = publicacionevento.id
-        WHERE publicacionevento.estado ="activo" AND publicacionevento.tipo ="noticia" 
-        
+        WHERE publicacionevento.estado ="activo" AND publicacionevento.tipo ="noticia"
+
         https://roopashree-uthamacholan.medium.com/retrofit-common-errors-solved-d175d89660fe
         ;
        */
+      $publicacion_noticia = Publicacioneventomodels::select('publicacionevento.nombre AS nombre_publicacion','publicacionevento.descripcion AS descripcion_publicacion','publicacionevento.lugar',
+      'publicacionevento.responsable','publicacionevento.estado','publicacionevento.tipo','publicacionevento.urlExterna AS image','publicacionevento.fecha_y_Hora AS fecha_y_hora')
+      ->join('archivoevento AS ar','ar.id','=','publicacionevento.id')
+    //  ->where('publicacionevento.estado','=','activo')
+      ->where('publicacionevento.tipo','=','noticia')
+      ->get();
+      return $publicacion_noticia;
 
-    $publicacion_noticia = Publicacioneventomodels::select('publicacionevento.nombre AS nombre_publicacion','publicacionevento.descripcion AS descripcion_publicacion','publicacionevento.lugar',
-    'publicacionevento.responsable','publicacionevento.estado','publicacionevento.tipo','ar.ruta AS ruta_archivo')
-    ->join('archivoevento AS ar','ar.id','=','publicacionevento.id')
-    //->where('publicacionevento.estado','=','activo')
-    ->where('publicacionevento.tipo','=','noticia')
-    ->get();
-    return $publicacion_noticia;
     }
 
-//consulta de  eventos 
+//consulta de  eventos
 
 public function eventos(){
     $publicacion_evento = Publicacioneventomodels::select('publicacionevento.nombre AS nombre_publicacion','publicacionevento.descripcion AS descripcion_publicacion','publicacionevento.lugar',
-    'publicacionevento.responsable','publicacionevento.estado','publicacionevento.tipo','ar.ruta AS ruta_archivo')
+    'publicacionevento.responsable','publicacionevento.estado','publicacionevento.tipo','publicacionevento.urlExterna AS image','publicacionevento.fecha_y_Hora AS fecha_y_hora')
     ->join('archivoevento AS ar','ar.id','=','publicacionevento.id')
     //->where('publicacionevento.estado','=','activo')
     ->where('publicacionevento.tipo','=','evento')
@@ -199,7 +199,7 @@ public function eventos(){
         ->get();
         return $eventos;
     }
-    
+
     public function noticiasporfechas(){
 
         //$eventos= Publicacioneventomodels:: where("tipo", "=", "evento")->whereDate('fecha_y_Hora','>=',now()->subDays(70))->select("id","nombre","tipo")
@@ -209,6 +209,6 @@ public function eventos(){
         return $noticias;
     }
 
-    
+
 
 }
