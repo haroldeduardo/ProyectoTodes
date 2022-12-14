@@ -51,7 +51,7 @@ class Publicacionevento_seeder extends Seeder
           
         ]);
 
-/*
+
 
         DB::table('publicacionevento')->insert 
         ([
@@ -139,9 +139,6 @@ class Publicacionevento_seeder extends Seeder
 
           
         ]);
-
-*/
-
         
 
 

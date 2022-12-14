@@ -29,12 +29,14 @@ class ComentariosController extends Controller
     public function store(Request $request)
     {
         $validar_comentario=Validator::make($request->all(),
-        ["Clasificacion"=>"required"]);//required es necesario
+        ["clasificasion"=>"required"]);//required es necesario
         if(!$validar_comentario->fails())//si al validar no hay falla
           {
             $comentario = new Comentarios();
             $comentario->contenido = $request->contenido;
-            $comentario->clasificacion = $request->clasificacion;
+            $comentario->clasificasion = $request->clasificasion;
+            $comentario->id_usuario = $request->id_usuario;
+            $comentario->id_publicacion = $request->id_publicacion;
             $comentario->fecha_comentario = Carbon::now();
             $comentario->save();
             return response()->json(['mensaje'=>"QUEDO GUARDADO EL COMENTARIO"]);
