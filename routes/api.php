@@ -39,6 +39,14 @@ Route::get('/publicacionconsul2',[PublicacioneventoController::class,'ordenar'])
 Route::get('/noticias',[PublicacioneventoController::class,'publicacionNoticia']);
 Route::get('/eventos',[PublicacioneventoController::class,'eventos']);
 
+//linea de busqueda  para fecha
+
+Route::get('/fechabusquedaevento/{fecha}',[PublicacioneventoController::class,'buscafechaevento']);
+Route::get('/fechabusquedanoticia/{fecha}',[PublicacioneventoController::class,'buscafechanoticia']);
+
+
+
+
 
 
 //Route::get('/archivo',[ArchivoeventoController::class,'index']);

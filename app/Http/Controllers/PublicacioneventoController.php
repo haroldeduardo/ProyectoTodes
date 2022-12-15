@@ -141,7 +141,19 @@ class PublicacioneventoController extends Controller
     public function  fechaeventos(){
 
 
-        $publicacion = Publicacioneventomodels::whereDate('fecha_y_Hora','>','1972-06-02')->get();
+        $publicacion = Publicacioneventomodels::whereDate('fecha_y_Hora','>','1972-06-02')->where('publicacionevento.tipo','=','evento')->get();
+        return $publicacion;
+    }
+
+//  busqueda por fecha
+    public function  buscafechaevento($fecha){
+
+        $publicacion = Publicacioneventomodels::whereDate('fecha_y_Hora','=',$fecha)->get();
+        return $publicacion;
+    }
+
+    public function buscafechanoticia($fecha){
+        $publicacion = Publicacioneventomodels::whereDate('fecha_y_Hora','=',$fecha)->where('publicacionevento.tipo','=','noticia')->get();
         return $publicacion;
     }
 
@@ -166,7 +178,7 @@ class PublicacioneventoController extends Controller
         ;
        */
 
-    $publicacion_noticia = Publicacioneventomodels::select('publicacionevento.urlExterna as imagen','publicacionevento.id as id','publicacionevento.nombre AS nombre_publicacion','publicacionevento.descripcion AS descripcion_publicacion','publicacionevento.lugar',
+    $publicacion_noticia = Publicacioneventomodels::select('publicacionevento.urlExterna as imagen','publicacionevento.fecha_y_Hora as fecha','publicacionevento.fecha_caducidad as fechacaducidad','publicacionevento.id as id','publicacionevento.nombre AS nombre_publicacion','publicacionevento.descripcion AS descripcion_publicacion','publicacionevento.lugar',
     'publicacionevento.responsable','publicacionevento.estado','publicacionevento.tipo','ar.ruta AS ruta_archivo')
     ->leftJoin('archivoevento AS ar','ar.id','=','publicacionevento.id')
     //->where('publicacionevento.estado','=','activo')
@@ -178,7 +190,7 @@ class PublicacioneventoController extends Controller
 //consulta de  eventos 
 
 public function eventos(){
-    $publicacion_evento = Publicacioneventomodels::select('publicacionevento.urlExterna as imagen','publicacionevento.fecha_y_Hora as fecha','publicacionevento.Fecha_caducidad as fechacaducidad','publicacionevento.id as id','publicacionevento.nombre AS nombre_publicacion','publicacionevento.descripcion AS descripcion_publicacion','publicacionevento.lugar',
+    $publicacion_evento = Publicacioneventomodels::select('publicacionevento.urlExterna as imagen','publicacionevento.fecha_y_Hora as fecha','publicacionevento.fecha_caducidad as fechacaducidad','publicacionevento.id as id','publicacionevento.nombre AS nombre_publicacion','publicacionevento.descripcion AS descripcion_publicacion','publicacionevento.lugar',
     'publicacionevento.responsable','publicacionevento.estado','publicacionevento.tipo','ar.ruta AS ruta_archivo')
     ->leftJoin('archivoevento AS ar','ar.id','=','publicacionevento.id')
     //->where('publicacionevento.estado','=','activo')
