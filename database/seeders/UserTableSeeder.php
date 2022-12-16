@@ -31,7 +31,7 @@ class UserTableSeeder extends Seeder
              User::create([
                 'identificacion'=>'9863',
                  'nombre'=>'administrador12',
-                 'apellidos'=>'admi',
+                 'apellidos'=>'admi',  
                  'genero'=>'femenino',
                  'fecha_nacimiento'=>'14-08-11',
                  'email'=>'admin12@gmail.com',
