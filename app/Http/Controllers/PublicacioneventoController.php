@@ -157,11 +157,10 @@ class PublicacioneventoController extends Controller
 
     public function publicacionNoticia()
     {
-       /* SELECT publicacionevento.nombre,publicacionevento.descripcion,publicacionevento.lugar,
-        publicacionevento.responsable,publicacionevento.estado,publicacionevento.tipo,ar.ruta FROM publicacionevento 
+       /*SELECT publicacionevento.nombre,publicacionevento.descripcion,publicacionevento.lugar, publicacionevento.responsable,publicacionevento.estado,publicacionevento.tipo,publicacionevento.urlExterna,publicacionevento.fecha_y_Hora FROM publicacionevento 
         INNER JOIN archivoevento AS ar on ar.id = publicacionevento.id
         WHERE publicacionevento.estado ="activo" AND publicacionevento.tipo ="noticia" 
-        
+
         https://roopashree-uthamacholan.medium.com/retrofit-common-errors-solved-d175d89660fe
         ;
        */
