@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Publicacioneventomodels;
 use Illuminate\Support\Facades\Validator;
+use Carbon\Carbon;
 
 
 class PublicacioneventoController extends Controller
@@ -138,7 +139,7 @@ class PublicacioneventoController extends Controller
 
     //CONSULTA EN DONDE  SE VE LA PUBLICACIONES y eventos mayors  a la fecha
 
-    public function  fechaeventos(){
+    public function  fechaeventosx(){
 
 
         $publicacion = Publicacioneventomodels::whereDate('fecha_y_Hora','>','1972-06-02')->where('publicacionevento.tipo','=','evento')->get();
@@ -146,17 +147,40 @@ class PublicacioneventoController extends Controller
     }
 
 //  busqueda por fecha
-    public function  buscafechaevento($fecha){
+    public function  fechaeventos($fecha){
 
-        $publicacion = Publicacioneventomodels::whereDate('fecha_y_Hora','=',$fecha)->get();
+        $publicacion = Publicacioneventomodels::whereDate('fecha_y_Hora','=',$fecha)->where('publicacionevento.tipo','=','evento')->get();
         return $publicacion;
     }
 
-    public function buscafechanoticia($fecha){
+    public function fechanoticias($fecha){
         $publicacion = Publicacioneventomodels::whereDate('fecha_y_Hora','=',$fecha)->where('publicacionevento.tipo','=','noticia')->get();
         return $publicacion;
     }
 
+    //consulta conteo para noticias y eventos  
+
+    
+    public function conteoeventos(){
+        
+    $fecha= Carbon::now();
+    $array = array();
+    
+    
+    for ($i = 1; $i <= 10; $i++) { //Para recorrer los doce meses
+
+       
+        //fijar en el arreglo la cantidad por mes
+        $array[$i]= $i+10;
+    
+    }
+
+    $conteo1 =Publicacioneventomodels::whereBetween('fecha_y_Hora',['2022-10-01','2022-10-30'])
+    ->get();
+    return $array;
+    
+    
+    }
 
     // ordenar ascedntemente   los nombres de las publicaciones
     public function  ordenar(){

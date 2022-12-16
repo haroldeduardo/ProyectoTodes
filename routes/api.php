@@ -34,15 +34,18 @@ Route::delete('/publicacion/{id}',[PublicacioneventoController::class,'destroy']
 
 // CONSULTAS
 
-Route::get('/publicacionconsul',[PublicacioneventoController::class,'fechaeventos']);
+Route::get('/publicacionconsul',[PublicacioneventoController::class,'fechaeventosx']);
 Route::get('/publicacionconsul2',[PublicacioneventoController::class,'ordenar']);
 Route::get('/noticias',[PublicacioneventoController::class,'publicacionNoticia']);
 Route::get('/eventos',[PublicacioneventoController::class,'eventos']);
 
 //linea de busqueda  para fecha
 
-Route::get('/fechabusquedaevento/{fecha}',[PublicacioneventoController::class,'buscafechaevento']);
-Route::get('/fechabusquedanoticia/{fecha}',[PublicacioneventoController::class,'buscafechanoticia']);
+Route::get('/fechaeventos/{fecha}',[PublicacioneventoController::class,'fechaeventos']);
+Route::get('/fechanoticias/{fecha}',[PublicacioneventoController::class,'fechanoticias']);
+Route::get('/totaleventos',[PublicacioneventoController::class,'conteoeventos']);
+
+
 
 
 
