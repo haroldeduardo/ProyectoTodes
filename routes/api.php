@@ -26,6 +26,10 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+Route::get('', ['middleware' => 'cors', function() {
+    return 'You did it!';
+}]);
 Route::get('/publicacion',[PublicacioneventoController::class,'index']);
 Route::post('/publicacion',[PublicacioneventoController::class,'store']);
 Route::get('/publicacion/{id}',[PublicacioneventoController::class,'show']);

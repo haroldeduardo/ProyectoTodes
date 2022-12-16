@@ -28,7 +28,7 @@ class Comentario_seeder extends Seeder
           
         ]);
 
-/*
+
         DB::table('comentarios')->insert 
         ([
             'contenido' => 'la noticia',
@@ -40,7 +40,7 @@ class Comentario_seeder extends Seeder
 
           
         ]);
-*/
+
 
         //Comentarios::factory(50)->create();
     }
