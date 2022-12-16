@@ -167,7 +167,7 @@ class PublicacioneventoController extends Controller
        */
       $publicacion_noticia = Publicacioneventomodels::select('publicacionevento.nombre AS nombre_publicacion','publicacionevento.descripcion AS descripcion_publicacion','publicacionevento.lugar',
       'publicacionevento.responsable','publicacionevento.estado','publicacionevento.tipo','publicacionevento.urlExterna AS image','publicacionevento.fecha_y_Hora AS fecha_y_hora')
-      ->leftjoin('archivoevento AS ar','ar.id','=','publicacionevento.id')
+      ->join('archivoevento AS ar','ar.id','=','publicacionevento.id')
     //  ->where('publicacionevento.estado','=','activo')
       ->where('publicacionevento.tipo','=','noticia')
       ->get();
@@ -180,7 +180,7 @@ class PublicacioneventoController extends Controller
 public function eventos(){
     $publicacion_evento = Publicacioneventomodels::select('publicacionevento.nombre AS nombre_publicacion','publicacionevento.descripcion AS descripcion_publicacion','publicacionevento.lugar',
     'publicacionevento.responsable','publicacionevento.estado','publicacionevento.tipo','publicacionevento.urlExterna AS image','publicacionevento.fecha_y_Hora AS fecha_y_hora')
-    ->leftjoin('archivoevento AS ar','ar.id','=','publicacionevento.id')
+    ->join('archivoevento AS ar','ar.id','=','publicacionevento.id')
     //->where('publicacionevento.estado','=','activo')
     ->where('publicacionevento.tipo','=','evento')
     ->get();
