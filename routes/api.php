@@ -42,7 +42,7 @@ Route::get('/publicacionconsul',[PublicacioneventoController::class,'fechaevento
 Route::get('/publicacionconsul2',[PublicacioneventoController::class,'ordenar']);
 Route::get('/noticias',[PublicacioneventoController::class,'publicacionNoticia']);
 Route::get('/eventos',[PublicacioneventoController::class,'eventos']);
-
+Route::get('/imagenes',[PublicacioneventoController::class,'traeimagenes']);
 
 
 //Route::get('/archivo',[ArchivoeventoController::class,'index']);

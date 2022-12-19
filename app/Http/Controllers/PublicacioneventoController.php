@@ -211,4 +211,11 @@ public function eventos(){
 
 
 
+    public  function traeimagenes(){
+
+       
+        return \Storage::url($this->urlExterna)
+        ->get();
+    }
+
 }
