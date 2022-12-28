@@ -43,7 +43,10 @@ Route::get('/eventos',[PublicacioneventoController::class,'eventos']);
 
 Route::get('/fechaeventos/{fecha}',[PublicacioneventoController::class,'fechaeventos']);
 Route::get('/fechanoticias/{fecha}',[PublicacioneventoController::class,'fechanoticias']);
+
+//consultas para charts
 Route::get('/totaleventos',[PublicacioneventoController::class,'conteoeventos']);
+Route::get('/totalnoticias',[PublicacioneventoController::class,'contenoticias']);
 
 
 
