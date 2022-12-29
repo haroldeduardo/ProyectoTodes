@@ -138,12 +138,79 @@ class PublicacioneventoController extends Controller
 
     //CONSULTA EN DONDE  SE VE LA PUBLICACIONES y eventos mayors  a la fecha
 
-    public function  fechaeventos(){
+    public function  fechaeventosx(){
 
 
         $publicacion = Publicacioneventomodels::whereDate('fecha_y_Hora','>','1972-06-02')->get();
         return $publicacion;
     }
+
+    //  busqueda por fecha para eventos y noticias
+    public function  fechaeventos($fecha){
+
+        $publicacion = Publicacioneventomodels::whereDate('fecha_y_Hora','=',$fecha)->where('publicacionevento.tipo','=','evento')->get();
+        return $publicacion;
+    }
+
+    public function fechanoticias($fecha){
+        $publicacion = Publicacioneventomodels::whereDate('fecha_y_Hora','=',$fecha)->where('publicacionevento.tipo','=','noticia')->get();
+        return $publicacion;
+    }
+
+    //consulta conteo para eventos  
+    public function conteoeventos(){
+    $array = array();
+    $contPM = 0;
+    
+    for ($i = 1; $i <= 12; $i++) { //Para recorrer año
+       for ($j = 1; $j <= 31; $j++) { //Para recorrer mes
+        
+        $fecha = date("Y-$i-$j");
+        
+        $conteo1 = Publicacioneventomodels::whereDate('fecha_y_Hora','=',$fecha)->where('publicacionevento.tipo','=','evento')->count();  //  $conteo1 nos trae arreglo de publicacioneventos
+
+        if($conteo1 > 0){
+            $contPM = $contPM + $conteo1;
+        }
+       
+        }  //aqui termina el ciclo por mes
+
+        $array[$i] = $contPM;
+        $contPM = 0;
+
+    }// aqui termina el ciclo por año
+
+        return $array;
+    }
+
+
+
+     //consulta conteo para noticias CHARTS
+     public function contenoticias(){
+        $array = array();
+        $contNT = 0;
+    
+        for ($i = 1; $i <= 12; $i++) { //Para recorrer año
+            for ($j = 1; $j <= 31; $j++) { //Para recorrer mes
+                
+                $fecha2 = date("Y-$i-$j");
+                
+                $conteo1 = Publicacioneventomodels::whereDate('fecha_y_Hora','=',$fecha2)->where('publicacionevento.tipo','=','noticia')->get();  //  $conteo1 nos trae arreglo de publicacioneventos
+
+                if(sizeof($conteo1) > 0){
+                    $contNT = $contNT + sizeof($conteo1);
+                }
+            
+                }
+                $array[$i] = $contNT;
+                $contNT = 0;
+
+    }
+        return $array;
+       
+     }
+
+
 
 
     // ordenar ascedntemente   los nombres de las publicaciones
@@ -209,13 +276,11 @@ public function eventos(){
         return $noticias;
     }
 
-
-
-    public  function traeimagenes(){
-
+public  function traeimagenes(){
        
-        return \Storage::url($this->urlExterna)
-        ->get();
+       // return /S::url($this->urlExterna)
+       // ->get();
     }
 
+   
 }

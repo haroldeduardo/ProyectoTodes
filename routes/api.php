@@ -45,6 +45,18 @@ Route::get('/eventos',[PublicacioneventoController::class,'eventos']);
 Route::get('/imagenes',[PublicacioneventoController::class,'traeimagenes']);
 
 
+//consultas de busqueda  para fecha --------------------------------------------------
+
+Route::get('/fechaeventos/{fecha}',[PublicacioneventoController::class,'fechaeventos']);
+Route::get('/fechanoticias/{fecha}',[PublicacioneventoController::class,'fechanoticias']);
+
+//consultas para charts vue js
+Route::get('/totaleventos',[PublicacioneventoController::class,'conteoeventos']);
+Route::get('/totalnoticias',[PublicacioneventoController::class,'contenoticias']);
+
+//--------------------------------------------------------------------------------------
+
+
 //Route::get('/archivo',[ArchivoeventoController::class,'index']);
 //Route::get('/comentarios',[ComentariosController::class,'index']);
 //Route::get('/categoria',[CategoriaController::class,'index']);
@@ -116,5 +128,7 @@ Route::post('/detalle_categoria',[DetallepublicacioncategoriaController::class,'
 
 //consulta de usuario con los roles
 Route::get('/roles_usuarios/{id}',[UserController::class,'showUsersRoles']);
+
+
 ?>
 
